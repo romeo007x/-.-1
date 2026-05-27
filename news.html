@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ข้อมูลข่าวสาร | โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f4f8f9;
+        }
+    </style>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "royal-gold-light": "#C5A97A",
+                        "clinical-blue-dark": "#004D65",
+                        "primary": "#005570",
+                        "on-surface": "#181c1d",
+                        "on-surface-variant": "#4a5568",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#e2e8f0",
+                        "primary-fixed": "#bfe8ff",
+                        "secondary": "#765928",
+                        "on-secondary": "#ffffff",
+                        "error": "#d32f2f",
+                        "on-error": "#ffffff"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md border-b border-royal-gold-light/40 fixed top-0 w-full z-50 transition-all duration-300">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-4 md:px-margin-desktop py-3.5 gap-4">
+        
+        <!-- Logo Section -->
+        <a href="index.html" class="flex items-center gap-3 min-w-0 shrink-0 group">
+            <img src="https://img2.pic.in.th/logo_lomkao2-no-BG.png" alt="Logo" class="w-10 h-10 object-contain transition-transform group-hover:scale-105">
+            <h1 class="font-headline-md text-sm sm:text-base md:text-lg lg:text-xl text-clinical-blue-dark tracking-wide font-bold leading-tight whitespace-nowrap">
+                โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+            </h1>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-6 shrink-0">
+            <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="index.html">หน้าแรก</a>
+            
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+                    เกี่ยวกับเรา <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-56 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="about-history.html">ประวัติความเป็นมา</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="about-vision.html">วิสัยทัศน์ พันธกิจ</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="about-executives.html">คณะผู้บริหาร</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+                    บริการของเรา <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-56 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="services.html">บริการทางการแพทย์</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="specialists.html">ศูนย์เชี่ยวชาญเฉพาะทาง</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="doctors.html">ค้นหาแพทย์</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-200">
+                    ข้อมูลข่าวสาร <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-56 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="news.html">ข่าวประชาสัมพันธ์</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="articles.html">บทความสุขภาพ</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+                    ประกาศฯ <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-64 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="procurement.html">จัดซื้อจัดจ้าง</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="jobs.html">รับสมัครงาน</a>
+                    </div>
+                </div>
+            </div>
+            
+            <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="contact.html">ติดต่อเรา</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+            <button class="bg-error text-on-error px-3 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 shadow-md shadow-error/20 hover:shadow-lg active:scale-95 transition-all" onclick="window.location.href='emergency.html'">
+                <span class="sm:hidden">1669</span><span class="hidden sm:inline">ฉุกเฉิน 1669</span>
+            </button>
+            <button class="bg-secondary text-on-secondary px-3 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-amber-800 shadow-md shadow-secondary/10 active:scale-95 transition-all" onclick="window.location.href='donations.html'">บริจาค</button>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-on-surface-variant hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-3 shadow-inner">
+        <a class="block text-primary font-bold py-1.5 border-b" href="index.html">หน้าแรก</a>
+        <div class="py-1">
+            <p class="text-xs font-semibold text-royal-gold-light uppercase tracking-wider mb-1">เกี่ยวกับเรา</p>
+            <a class="block pl-3 py-1.5 text-sm text-on-surface-variant" href="about-history.html">- ประวัติความเป็นมา</a>
+        </div>
+        <a class="block text-on-surface-variant font-medium py-1.5" href="contact.html">ติดต่อเรา</a>
+    </div>
+</header>
+
+    <!-- Main Content Section -->
+    <main class="pt-32 pb-20 max-w-container-max mx-auto px-4 md:px-margin-desktop">
+        <div class="mb-12">
+            <h1 class="font-headline-xl text-headline-xl text-primary mb-2">ข่าวและกิจกรรม</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant uppercase tracking-widest">News & Events</p>
+            <div class="w-24 h-1 bg-royal-gold-light mt-4"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-gutter">
+            <!-- News Grid Container -->
+            <div class="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+                
+                <!-- ข่าวที่ 1 -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden card-hover group cursor-pointer" onclick="window.location.href='news-detail.html'">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMqhlF1BXgB12yoTTg75_LJzByRO4Z2YBAhVBDNGzZoHbWV4ghi4M--H_7RB_QoExKcug7a_i4A2BTRmbTrboMXeKuQ7lNiRYwE7mVqPGOkg-Tay6TiVBsdP9AOf1Ms51tAQDpRqEt758P8160m9CkIMUVjCxc1R2OUzUot6Jqo09ywsOL2U6FqapIyrCEO7So5KEmqf5rO32fWDlNaTAfRtwpN85esQ5tRrGK-Xr-ScjgR-cYfqD5G3DQZ5oxAFS29DdondgSQc">
+                        <div class="absolute top-4 left-4 bg-primary text-on-primary text-label-sm font-label-sm px-3 py-1 rounded">กิจกรรมการกุศล</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-snug">ทีโอเอมอบเงินบริจาคผู้ป่วยยากจนในชุมชน และผู้ป่วยระยะสุดท้าย</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">ทีมเวชศาสตร์ครอบครัวร่วมกับมูลนิธิทีโอเอ ลงพื้นที่มอบทุนทรัพย์และอุปกรณ์การแพทย์ที่จำเป็นสำหรับผู้ป่วยติดเตียงในเขตอำเภอหล่มเก่า</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+                            <div class="flex items-center gap-4 text-on-surface-variant">
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                    04 ตุลาคม 2566
+                                </span>
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                    347 เข้าชม
+                                </span>
+                            </div>
+                            <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ข่าวที่ 2 -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden card-hover group cursor-pointer" onclick="window.location.href='news-detail.html'">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkfLf1AoFZF-BAKGfqXpGVM53TsMAwRVlxdj_TCxoigIWslfbIwLToVILkDj6hEtKCaou9QBItqEYqErcsk1ab_llq24Rtf445dCiyqqJwhtg6smSk3BVj4mXZvIijh5xIJXYx_ClkGs5gYaWk9SUpdkcIRMGRFbbz63HhK1Xq-8TgPAnawNyHxOghhmEauPl4VnG0DPp2-Re1ZrfaeO2_g1EVDjktkORfaRt36qKvSyG_TJPpCWreX-KoCau2CmBwIUerp8rt6ow">
+                        <div class="absolute top-4 left-4 bg-primary text-on-primary text-label-sm font-label-sm px-3 py-1 rounded">กิจกรรมทั่วไป</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-snug">กิจกรรมสุขศึกษาและตรวจสุขภาพเชิงรุกประจำปี</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">หน่วยแพทย์เคลื่อนที่ออกให้บริการตรวจสุขภาพเบื้องต้นและให้ความรู้เรื่องโรคไม่ติดต่อเรื้อรัง (NCDs) ให้กับประชาชน</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+                            <div class="flex items-center gap-4 text-on-surface-variant">
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                    25 สิงหาคม 2566
+                                </span>
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                    481 เข้าชม
+                                </span>
+                            </div>
+                            <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ข่าวที่ 3 -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden card-hover group cursor-pointer" onclick="window.location.href='news-detail.html'">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVeTEgMs45MO2Ee1RUQNkG6N-UOck41X99Gyph4t5FWTJOUlx5ugDTrGIQ74je6S5s__Mw2RnQw9luTNOYtx_tK2uF4VueCJHWE6s_SOut3tHi3lCfteyl96NRQWqZkiTurhit9tFOCe649Q0adkjRA8Hs0tist4GFhEJvhhv7ZMi0cwilVbwtONajinyVShyIfVC6AFReiMVdpmTTiParX_lCX0TwUP24n3jTiaG9OTTtWmwdrg7zOekTNF7_hsg9ZHdezlKW78Y">
+                        <div class="absolute top-4 left-4 bg-primary text-on-primary text-label-sm font-label-sm px-3 py-1 rounded">การประชุม</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-snug">อบรมฟื้นฟูความรู้การช่วยฟื้นคืนชีพขั้นสูง (ACLS)</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">บุคลากรทางการแพทย์เข้าร่วมการอบรมเชิงปฏิบัติการเพื่อพัฒนาศักยภาพในการดูแลผู้ป่วยวิกฤตอย่างมีประสิทธิภาพ</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+                            <div class="flex items-center gap-4 text-on-surface-variant">
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                    12 กรกฎาคม 2566
+                                </span>
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                    417 เข้าชม
+                                </span>
+                            </div>
+                            <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ข่าวที่ 4 -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden card-hover group cursor-pointer" onclick="window.location.href='news-detail.html'">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Ku9GDYPZkUeGn5Gpi5fABC7dHGfOmhAZdoxbG9YYD4qz30xjxrYTofAEZR9-m8eu-r8Pv7v82y6EYHVPxi9GJ1_bNMzX9Scd9Mx0dI6m_tTvMYDh0OoKFuP8T6YZZxlHFcaHOZ_5obDh3-KaypRsVSZBOi0l0WIJpPvmfuiE0KR_Zn__yWgvicL9DXuqKwup7W0i_rChke6AIOHLQ_SxPF7IYSLax5uebmSuJy3-dOAclQA5jrZVlSgRHB12AWDJNnFI3V-cue4">
+                        <div class="absolute top-4 left-4 bg-primary text-on-primary text-label-sm font-label-sm px-3 py-1 rounded">จดหมายข่าว</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3 leading-snug">วารสารสายใยพรรณไม้ ฉบับเดือนมิถุนายน</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">ติดตามข่าวสารสาระสุขภาพ และกิจกรรมเด่นของโรงพยาบาลสมเด็จพระยุพราชหล่มเก่า ประจำเดือนล่าสุด</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-outline-variant">
+                            <div class="flex items-center gap-4 text-on-surface-variant">
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                                    15 มิถุนายน 2566
+                                </span>
+                                <span class="flex items-center gap-1 font-label-sm text-label-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                    379 เข้าชม
+                                </span>
+                            </div>
+                            <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar Section -->
+            <aside class="w-full md:w-80 space-y-gutter">
+                <div class="bg-surface-container p-6 rounded-xl border border-outline-variant">
+                    <h4 class="font-label-bold text-label-bold text-primary mb-4">ค้นหาข่าว</h4>
+                    <div class="relative">
+                        <input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="พิมพ์คำค้นหา..." type="text">
+                        <span class="material-symbols-outlined absolute right-3 top-2 text-outline">search</span>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+                    <h4 class="font-headline-md text-headline-md text-primary mb-6 border-b border-royal-gold-light pb-2">หมวดหมู่กิจกรรม</h4>
+                    <div class="space-y-4">
+                        <a class="flex items-center gap-4 group p-3 hover:bg-surface-container transition-colors rounded-lg" href="#">
+                            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-on-surface">Charity</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant">กิจกรรมการกุศล</p>
+                            </div>
+                        </a>
+                        <a class="flex items-center gap-4 group p-3 hover:bg-surface-container transition-colors rounded-lg" href="#">
+                            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-on-surface">Meeting</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant">ประชุม อบรม และสัมมนา</p>
+                            </div>
+                        </a>
+                        <a class="flex items-center gap-4 group p-3 hover:bg-surface-container transition-colors rounded-lg" href="#">
+                            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_available</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-on-surface">Activity</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant">ความเคลื่อนไหวอื่นๆ</p>
+                            </div>
+                        </a>
+                        <a class="flex items-center gap-4 group p-3 hover:bg-surface-container transition-colors rounded-lg" href="#">
+                            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-on-surface">Newsletter</p>
+                                <p class="font-label-sm text-label-sm text-on-surface-variant">จดหมายข่าว</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-primary text-on-primary p-6 rounded-xl">
+                    <h4 class="font-label-bold text-label-bold mb-4">ติดต่อสอบถาม</h4>
+                    <p class="font-body-md text-body-md mb-6">หากต้องการสอบถามข้อมูลเพิ่มเติมหรือแจ้งปัญหาการใช้งานระบบ</p>
+                    <button class="w-full bg-on-primary text-primary font-label-bold text-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors" onclick="window.location.href='contact.html'">โทร: 056-747-117</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="w-full py-12 px-margin-desktop flex flex-col items-center gap-gutter bg-surface-container-high dark:bg-surface-dim border-t border-outline-variant dark:border-outline">
+        <div class="flex flex-col items-center gap-4">
+            <span class="text-label-bold font-label-bold text-primary dark:text-primary-fixed-dim">โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</span>
+            <p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md text-center max-w-2xl">
+                มุ่งมั่นให้บริการทางการแพทย์ด้วยมาตรฐานสากล ภายใต้ความจงรักภักดีและปรัชญาแห่งโรงพยาบาลสมเด็จพระยุพราช
+            </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8">
+            <a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 font-body-md text-body-md" href="#">นโยบายความเป็นส่วนตัว</a>
+            <a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 font-body-md text-body-md" href="#">ข้อกำหนดการใช้งาน</a>
+            <a class="text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-300 font-body-md text-body-md" href="#">แผนผังเว็บไซต์</a>
+        </div>
+        <div class="w-full max-w-container-max flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant">
+            <p class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm">© 2024 โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า. สงวนลิขสิทธิ์.</p>
+            <div class="mt-4 md:mt-0">
+                <a class="flex items-center gap-2 text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="login.html">
+                    <span class="material-symbols-outlined text-[16px]">lock</span>
+                    สำหรับผู้ดูแลระบบ
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Be Vietnam Pro',sans-serif;
+}
+
+.material-symbols-outlined{
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+</style>
+
+</head>
+
+<body class="bg-slate-100">
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<div id="dashboard">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
+
+        <div class="flex items-center justify-between px-6 py-4">
+
+            <div class="flex items-center gap-3">
+
+                <span class="text-2xl font-bold text-cyan-800">
+                    โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+                </span>
+
+                <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-semibold">
+                    ADMIN
+                </span>
+
+            </div>
+
+            <div class="flex items-center gap-4">
+
+                <button class="relative">
+
+                    <span class="material-symbols-outlined text-slate-600">
+                        notifications
+                    </span>
+
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+
+                </button>
+
+                <div class="flex items-center gap-3">
+
+                    <img
+                        src="https://i.pravatar.cc/100"
+                        class="w-10 h-10 rounded-full"
+                    >
+
+                    <div class="hidden md:block">
+
+                        <p class="font-semibold">
+                            Admin Somdet
+                        </p>
+
+                        <p class="text-sm text-slate-500">
+                            System Administrator
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENT -->
+    <div class="flex pt-20 min-h-screen">
+
+        <!-- SIDEBAR -->
+        <aside class="w-72 bg-white shadow hidden lg:block">
+
+            <div class="p-6">
+
+                <p class="text-sm font-bold text-slate-400 mb-4">
+                    MENU
+                </p>
+
+                <nav class="space-y-2">
+
+                    <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-700 text-white font-semibold">
+
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+
+                        Dashboard
+
+                    </a>
+
+                    <!-- NEWS PAGE -->
+                    <a href="news.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+
+                        <span class="material-symbols-outlined">
+                            newspaper
+                        </span>
+
+                        ข่าวประชาสัมพันธ์
+
+                    </a>
+
+                    <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+
+                        <span class="material-symbols-outlined">
+                            group
+                        </span>
+
+                        จัดการแพทย์
+
+                    </a>
+
+                    <a href="#"
+                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+
+                        <span class="material-symbols-outlined">
+                            settings
+                        </span>
+
+                        ตั้งค่า
+
+                    </a>
+
+                    <!-- LOGOUT -->
+                    <button
+                        onclick="logout()"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition mt-10"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            logout
+                        </span>
+
+                        ออกจากระบบ
+
+                    </button>
+
+                </nav>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="flex-1 p-6">
+
+            <!-- TOP -->
+            <div class="mb-8">
+
+                <h1 class="text-3xl font-bold text-cyan-900">
+                    Dashboard
+                </h1>
+
+                <p class="text-slate-500 mt-2">
+                    ยินดีต้อนรับเข้าสู่ระบบจัดการหลังบ้าน
+                </p>
+
+            </div>
+
+            <!-- TABLE -->
+            <div class="bg-white rounded-2xl shadow overflow-hidden">
+
+                <div class="flex items-center justify-between p-6 border-b">
+
+                    <h2 class="text-2xl font-bold">
+                        ข่าวประชาสัมพันธ์
+                    </h2>
+
+                    <button
+                        onclick="addNews()"
+                        class="bg-cyan-700 text-white px-5 py-3 rounded-xl hover:bg-cyan-800 transition flex items-center gap-2"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+
+                        เพิ่มข่าว
+
+                    </button>
+
+                </div>
+
+                <div class="overflow-x-auto">
+
+                    <table class="w-full">
+
+                        <thead class="bg-slate-100">
+
+                            <tr class="text-left">
+
+                                <th class="p-4">หัวข้อ</th>
+                                <th class="p-4">วันที่</th>
+                                <th class="p-4">สถานะ</th>
+                                <th class="p-4 text-center">จัดการ</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="newsTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   LOGIN SYSTEM
+========================= */
+
+const USERNAME = "admin";
+const PASSWORD = "1234";
+
+// เช็ค login
+if (!localStorage.getItem("isLogin")) {
+
+    document.body.innerHTML = `
+
+    <div class="min-h-screen flex items-center justify-center bg-slate-100 p-4">
+
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-xl p-8">
+
+            <h1 class="text-3xl font-bold text-cyan-800 text-center mb-2">
+                เข้าสู่ระบบ
+            </h1>
+
+            <p class="text-slate-500 text-center mb-8">
+                ระบบจัดการข่าวประชาสัมพันธ์
+            </p>
+
+            <div class="space-y-5">
+
+                <div>
+
+                    <label class="font-semibold block mb-2">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        class="w-full border rounded-xl px-4 py-3"
+                        placeholder="กรอก Username"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label class="font-semibold block mb-2">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="w-full border rounded-xl px-4 py-3"
+                        placeholder="กรอก Password"
+                    >
+
+                </div>
+
+                <button
+                    onclick="login()"
+                    class="w-full bg-cyan-700 hover:bg-cyan-800 text-white py-3 rounded-xl font-semibold"
+                >
+                    เข้าสู่ระบบ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+function login() {
+
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (user === USERNAME && pass === PASSWORD) {
+
+        localStorage.setItem("isLogin", "true");
+
+        location.reload();
+
+    } else {
+
+        alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+
+    }
+
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    localStorage.removeItem("isLogin");
+
+    location.reload();
+
+}
+
+/* =========================
+   NEWS SYSTEM
+========================= */
+
+let news = JSON.parse(localStorage.getItem("news")) || [
+
+    {
+        title: "ประกาศฉีดวัคซีนไข้หวัดใหญ่",
+        date: "15 ต.ค. 2567",
+        status: "เผยแพร่แล้ว"
+    }
+
+];
+
+/* =========================
+   LOAD NEWS
+========================= */
+
+function loadNews() {
+
+    const table = document.getElementById("newsTable");
+
+    if (!table) return;
+
+    table.innerHTML = "";
+
+    news.forEach((item, index) => {
+
+        table.innerHTML += `
+
+        <tr class="border-t hover:bg-slate-50">
+
+            <td class="p-4">
+                ${item.title}
+            </td>
+
+            <td class="p-4">
+                ${item.date}
+            </td>
+
+            <td class="p-4">
+
+                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
+                    ${item.status}
+                </span>
+
+            </td>
+
+            <td class="p-4">
+
+                <div class="flex justify-center gap-3">
+
+                    <button
+                        onclick="editNews(${index})"
+                        class="text-cyan-700 hover:scale-110 transition"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+
+                    </button>
+
+                    <button
+                        onclick="deleteNews(${index})"
+                        class="text-red-600 hover:scale-110 transition"
+                    >
+
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+/* =========================
+   ADD NEWS
+========================= */
+
+function addNews() {
+
+    const title = prompt("กรอกหัวข้อข่าว");
+
+    if (!title) return;
+
+    const date = prompt("กรอกวันที่");
+
+    if (!date) return;
+
+    news.push({
+
+        title: title,
+        date: date,
+        status: "เผยแพร่แล้ว"
+
+    });
+
+    saveNews();
+
+}
+
+/* =========================
+   EDIT NEWS
+========================= */
+
+function editNews(index) {
+
+    const newTitle = prompt(
+        "แก้ไขหัวข้อข่าว",
+        news[index].title
+    );
+
+    if (!newTitle) return;
+
+    const newDate = prompt(
+        "แก้ไขวันที่",
+        news[index].date
+    );
+
+    if (!newDate) return;
+
+    news[index].title = newTitle;
+    news[index].date = newDate;
+
+    saveNews();
+
+}
+
+/* =========================
+   DELETE NEWS
+========================= */
+
+function deleteNews(index) {
+
+    if (confirm("ต้องการลบข่าวนี้ ?")) {
+
+        news.splice(index, 1);
+
+        saveNews();
+
+    }
+
+}
+
+/* =========================
+   SAVE NEWS
+========================= */
+
+function saveNews() {
+
+    localStorage.setItem(
+        "news",
+        JSON.stringify(news)
+    );
+
+    loadNews();
+
+}
+
+/* =========================
+   PAGE LOAD
+========================= */
+
+window.onload = () => {
+
+    loadNews();
+
+};
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Doctor Profiles Management - CMS Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-background": "#FFFFFF",
+                        "inverse-primary": "#82d0f6",
+                        "clinical-blue-dark": "#004D65",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb872",
+                        "background": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#ebeeef",
+                        "status-error": "#D32F2F",
+                        "on-surface-variant": "#3f484d",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffe0c6",
+                        "on-primary-container": "#c7ebff",
+                        "tertiary-container": "#935915",
+                        "secondary-fixed-dim": "#e7c186",
+                        "surface-dim": "#d7dadb",
+                        "on-secondary-fixed-variant": "#5c4213",
+                        "primary": "#005570",
+                        "on-surface": "#181c1d",
+                        "surface": "#f7fafb",
+                        "inverse-surface": "#2d3132",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#006686",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-highest": "#e0e3e4",
+                        "on-background": "#181c1d",
+                        "surface-bright": "#f7fafb",
+                        "surface-variant": "#e0e3e4",
+                        "error": "#ba1a1a",
+                        "royal-gold-light": "#C5A97A",
+                        "secondary": "#765928",
+                        "primary-fixed": "#bfe8ff",
+                        "primary-container": "#006f91",
+                        "outline": "#6f787e",
+                        "on-primary-fixed": "#001f2b",
+                        "secondary-container": "#ffd79a",
+                        "secondary-fixed": "#ffdead",
+                        "on-secondary-fixed": "#281900",
+                        "on-secondary-container": "#795c2b",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2d1600",
+                        "tertiary": "#754200",
+                        "surface-container-low": "#f1f4f5",
+                        "primary-fixed-dim": "#82d0f6",
+                        "outline-variant": "#bfc8ce",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e5e9ea",
+                        "status-success": "#2D8A39",
+                        "tertiary-fixed": "#ffdcbf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "label-bold": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #f7fafb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Side Navigation Shell -->
+<nav class="fixed left-0 top-0 h-full flex flex-col py-6 bg-clinical-blue-dark dark:bg-surface-container-lowest w-64 border-r border-outline-variant z-50">
+<div class="px-6 mb-10">
+<h1 class="text-headline-md font-headline-md font-bold text-royal-gold-light dark:text-secondary">Crown Prince Hospital</h1>
+<p class="text-on-primary/70 font-label-sm text-label-sm mt-1">CMS Administrator</p>
+</div>
+<div class="flex-1 space-y-1 sidebar-scroll overflow-y-auto px-2">
+<!-- Navigation Items Mapping from JSON -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary mx-2 my-1 hover:bg-primary/20 transition-all duration-200 rounded-lg" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary mx-2 my-1 hover:bg-primary/20 transition-all duration-200 rounded-lg" href="{{DATA:SCREEN:SCREEN_33}}">
+<span class="material-symbols-outlined">article</span>
+<span class="font-label-bold text-label-bold">News Management</span>
+</a>
+<!-- Active State for Doctor Profiles -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 transition-all" href="{{DATA:SCREEN:SCREEN_5}}">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-bold text-label-bold">Doctor Profiles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary mx-2 my-1 hover:bg-primary/20 transition-all duration-200 rounded-lg" href="{{DATA:SCREEN:SCREEN_34}}">
+<span class="material-symbols-outlined">medical_information</span>
+<span class="font-label-bold text-label-bold">Service Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary mx-2 my-1 hover:bg-primary/20 transition-all duration-200 rounded-lg" href="{{DATA:SCREEN:SCREEN_40}}">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-bold text-label-bold">Schedule Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary mx-2 my-1 hover:bg-primary/20 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold text-label-bold">System Settings</span>
+</a>
+</div>
+<div class="mt-auto px-2 pt-6 border-t border-on-primary/10">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 hover:text-on-primary mx-2 my-1 transition-all duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 hover:text-on-primary mx-2 my-1 transition-all duration-200 rounded-lg" href="{{DATA:SCREEN:SCREEN_32}}">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-bold text-label-bold">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center h-16 px-8 bg-surface-background dark:bg-surface-container border-b border-secondary/20 sticky top-0 z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-label-sm focus:ring-2 focus:ring-primary/20" placeholder="Search doctor directory..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-opacity active:opacity-80">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<span class="text-right hidden sm:block">
+<p class="font-label-bold text-label-bold text-on-surface">Admin User</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Super Admin</p>
+</span>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a healthcare administrator in a clean white medical environment. The subject is a woman with a confident, approachable expression, wearing a navy blue blazer over a clinical white scrub top. The background is softly blurred, showing modern hospital architecture with bright, natural daylighting and a minimalist, sterile aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0rummbr7NgXKu2MFXSvtXTvlW8-__kQbkTrYgOpx7lnRrZTTpgCFSOhulHI1EeNjlE0SK5cIRykjdLhSW1geg6_9S3VNz_WEVbZLtyj-xc2tsdrb_wFhF2z1YleKfn4aybnEF6pO671BDho_IGh_d4AVndtO3m0c1RuW3J0TUImvxlfzIom9OGnpVysnYOvRT3lzZALZuiG3fixunzL1MZDMz7GtZ_PJgbWP1cCWVxHNVM7a2nQOSWHBeNJ99JgqMe-fPNK5Dsyk">
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Doctor Profiles Management</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Oversee and manage medical staff credentials, department assignments, and availability.</p>
+</div>
+<button class="bg-primary text-on-primary flex items-center gap-2 px-6 py-3 rounded-xl font-label-bold text-label-bold shadow-sm hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+                    Add New Doctor
+                </button>
+</div>
+<!-- Management Card -->
+<div class="bg-surface-background border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- Table Filters -->
+<div class="p-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<div class="flex gap-4">
+<select class="bg-white border border-outline rounded-lg px-4 py-2 text-label-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>All Departments</option>
+<option>Cardiology</option>
+<option>Neurology</option>
+<option>Pediatrics</option>
+<option>General Surgery</option>
+</select>
+<select class="bg-white border border-outline rounded-lg px-4 py-2 text-label-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>All Statuses</option>
+<option>Active</option>
+<option>On Leave</option>
+<option>Inactive</option>
+</select>
+</div>
+<div class="text-on-surface-variant text-label-sm">
+                        Showing 1-10 of 42 Doctors
+                    </div>
+</div>
+<!-- Doctors Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 font-label-bold text-label-bold text-primary uppercase tracking-wider">Doctor Name</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-primary uppercase tracking-wider">Department</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-primary uppercase tracking-wider">Specialization</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-primary uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-primary uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-background transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a middle-aged male doctor with glasses and a friendly, professional smile. He is wearing a white lab coat over a light blue shirt. The lighting is soft and even, typical of a professional medical clinic, emphasizing cleanliness and clinical precision. The background is a sterile, out-of-focus hospital corridor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE6pTAyo_s34md1l5910IYEjPUFmX8DWxX1Gxjn8N3hCiTqC_8TN5jUYtxdRruanFsozQTy28H1TqKdkef1nDMj1eK-UTvWBntWVNB82rU1zdKISkxfblisl5gC3KW4602Q9TS6alhEeohc1w0VHXe4O5ZqBNi0Asvp3NKyQVdgIFfoY2YnkEFzo_3SsJyMuNxbq0xrFPow08Xj1TW6u8wFcQ0EuxwIKo4FwUPVESlscJhxYI22uJ52f3gCP9bhEyJJrwGgGqaMcg">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Alexander Thorne</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">alexander.t@cph.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Cardiology</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Invasive Cardiology</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-bold bg-status-success/10 text-status-success">
+<span class="w-2 h-2 rounded-full bg-status-success mr-2"></span>
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-status-error/10 rounded-lg text-status-error transition-colors active:scale-90">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-background transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A focused female medical professional in a royal blue scrub set. She has a stethoscope around her neck and a calm, reassuring demeanor. The setting is a brightly lit modern hospital ward with high-key lighting. The overall color palette is clinical and clean, featuring shades of white, soft grey, and medical blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjslo1prT3DulFsNRbyaK50hxdQ17QucAc3PI1q_hpgSDqg-o_8TlTkArCb085ud8k7H3iqpmWL3j-f0o6Y-FpOjcVK7GbGq7oiZ68R_t3hPYc6g7AIvgFBYHmwCZEr6iqitmUiet1uVk14GcZ8yY8ZyQJlaE_1WcsiiyEeF6c-1Yi7Ib7TDBjKJ6r44qmGNQdSzOCppEaf5GASh5lnrY8E414kb8AUCkbMXPyas7FMdg0ojK75nA643Ua7C3ACZMlkQpqftBChMk">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Elena Sterling</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">e.sterling@cph.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Neurology</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Neuro-Oncology</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-bold bg-status-success/10 text-status-success">
+<span class="w-2 h-2 rounded-full bg-status-success mr-2"></span>
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-status-error/10 rounded-lg text-status-error transition-colors active:scale-90">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-background transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A senior male doctor with grey hair and a sophisticated, trust-inspiring appearance. He wears a dark tie under a pristine white medical coat. He is sitting in a minimalist office with clinical bookshelves in the background. The mood is authoritative yet compassionate, captured in a modern corporate portrait style with natural window lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Y-NHEFcirheWD-3mKsXk2zJm6l1ApZoSjMOf6haJHl7cRwgEBtK8p_v2vWtK2JinWzBR-8NEz3sdGM8WCT0o_ag6iEqj614zb3rubSaNCNz-_olmAU5FYwG23xE-pwVoXgOapSBgrH8xJvzZYiPtvUhFKSF_GqhtaUluNSXuQjarp3uee86peEERbDkEPbRFjge3V5_ydVISxhNnNxzyi0bF-yEr-WlGY7kw9erzGN3d5PZfXt0VHZIENU97KY2Z4UjHXlHodT8">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Marcus Vance</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">m.vance@cph.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">General Surgery</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Robotic Surgery</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-bold bg-secondary-container text-on-secondary-container">
+<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span>
+                                        ON LEAVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-status-error/10 rounded-lg text-status-error transition-colors active:scale-90">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-background transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a female pediatrician in a bright, colorful room. She is wearing a soft grey cardigan over scrubs, holding a clipboard. The atmosphere is warm and welcoming, designed for a pediatric healthcare setting. The lighting is soft and golden, giving a sense of royal trust and compassionate care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy5M_0yJSzGjmX_vL_P01MoGUXbxqfMouTKNLYJImu2VVbGlzTvwG0Acem3W6E9CZTaepf6NWr4Ar-72wPpatjmz-_iiYJI-hnNKPPGvg7-6JW1p98Tqupf0u-np01YPGecriFyj8FOLzL99WikBaVvA0eWIPYV6fxzosFk0mZOf4y2x4dmxyFpfXdrWRFI89IwMrwutg8LR4Oh6xI7uXeA0sJipbjfqOfQlCUvymqVBOLlBdsePPb4OPs4iHsCu0Q9JjF9iJ3Og4">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">s.jenkins@cph.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Pediatrics</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Neonatology</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-bold bg-status-success/10 text-status-success">
+<span class="w-2 h-2 rounded-full bg-status-success mr-2"></span>
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-status-error/10 rounded-lg text-status-error transition-colors active:scale-90">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-background transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a male orthopedic surgeon in green surgical scrubs. He looks determined and highly capable. The background shows a modern hospital operating theatre with high-tech equipment blurred behind him. The image style is sharp, clean, and clinical, utilizing a high-contrast lighting setup to emphasize professional authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy3ULmr57sYjv8-NcvDou34Kea2eWgjHDeP-fWRQbCFv9cphSO8ggALlAJIoPTc6PwWTE-HnsT0VVqzI-Ln7keb5-jqLUfay7Q2kBitjK7CmNuNG6sAByNJFK2ec1pm5TJHKPNXes-g85oePIqZI8NzU_qBES4olgxMWP9UBdZB6e_x9tsYu194X_hXaZt171YDfZt1RYjPco-yYDb5IdZyDGRqnTfZVW6z0J4tV2v3gQ8RbOrRZaALKg1LxWQZc2oVPtRW7dTa8M">
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Julian Richter</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">j.richter@cph.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Orthopedics</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">Sports Medicine</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-bold bg-error-container text-on-error-container">
+<span class="w-2 h-2 rounded-full bg-error mr-2"></span>
+                                        INACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-status-error/10 rounded-lg text-status-error transition-colors active:scale-90">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-low">
+<button class="px-4 py-2 border border-outline rounded-lg text-label-bold hover:bg-white transition-all disabled:opacity-50" disabled="">Previous</button>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant font-label-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant font-label-bold">3</button>
+<span class="w-8 h-8 flex items-center justify-center">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant font-label-bold">5</button>
+</div>
+<button class="px-4 py-2 border border-outline rounded-lg text-label-bold hover:bg-white transition-all">Next</button>
+</div>
+</div>
+<!-- Management Stats Footer (Bento Style) -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-clinical-blue-dark p-6 rounded-xl text-on-primary border border-outline-variant/20 shadow-lg">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-royal-gold-light text-3xl">verified_user</span>
+<span class="bg-primary-container/20 text-on-primary-container px-2 py-1 rounded text-[10px] font-bold">LIVE STATUS</span>
+</div>
+<p class="text-on-primary/70 font-label-sm text-label-sm">Total Verified Staff</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">1,248</h3>
+<div class="mt-4 flex items-center gap-1 text-status-success font-label-bold text-[12px]">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        +12 new this month
+                    </div>
+</div>
+<div class="bg-surface-background p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">pending_actions</span>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">Pending Credential Reviews</p>
+<h3 class="font-headline-lg text-headline-lg mt-1">14</h3>
+<button class="mt-4 text-primary font-label-bold text-label-bold flex items-center gap-1 hover:underline">
+                        Review Now <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="bg-royal-gold-light/10 p-6 rounded-xl border border-royal-gold-light/30 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl">military_tech</span>
+</div>
+<p class="text-secondary font-label-sm text-label-sm">Board Certified Ratio</p>
+<h3 class="font-headline-lg text-headline-lg text-secondary mt-1">98.4%</h3>
+<div class="w-full bg-secondary/20 h-2 rounded-full mt-4 overflow-hidden">
+<div class="bg-secondary h-full" style="width: 98.4%"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.querySelector('img').classList.add('scale-110', 'transition-transform');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.querySelector('img').classList.remove('scale-110');
+            });
+        });
+    </script>
+
+
+</body></html>

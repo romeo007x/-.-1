@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>หน้าแรก | โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<style>
+
+html{
+    scroll-behavior:smooth;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Be Vietnam Pro',sans-serif;
+    background:#f5f8fa;
+    overflow-x:hidden;
+    width:100%;
+}
+
+/* ===== IMAGE ===== */
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ===== HEADER ===== */
+
+.glass-header{
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.4);
+    box-shadow:0 10px 40px rgba(0,0,0,.05);
+}
+
+/* ===== NAV ===== */
+
+.nav-link{
+    position:relative;
+    transition:.25s;
+}
+
+.nav-link:hover{
+    color:#005570;
+}
+
+.nav-link.active{
+    color:#005570;
+    font-weight:700;
+}
+
+.nav-link.active::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:3px;
+    background:#005570;
+    border-radius:999px;
+}
+
+/* ===== DROPDOWN ===== */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-menu{
+    position:absolute;
+    top:120%;
+    left:0;
+    width:240px;
+    background:#fff;
+    border-radius:20px;
+    padding:10px;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:.3s;
+    z-index:99;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-menu a{
+    display:block;
+    padding:12px 14px;
+    border-radius:14px;
+    transition:.2s;
+}
+
+.dropdown-menu a:hover{
+    background:#eef7fb;
+    color:#005570;
+}
+
+/* ===== CARD ===== */
+
+.card{
+    background:white;
+    border-radius:28px;
+    box-shadow:0 10px 40px rgba(0,0,0,.05);
+    transition:.3s;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+/* ===== HERO ===== */
+
+.hero-overlay{
+    background:
+    linear-gradient(
+    to right,
+    rgba(0,53,70,.95),
+    rgba(0,53,70,.60),
+    rgba(0,53,70,.15)
+    );
+}
+
+/* ===== MOBILE MENU ===== */
+
+.mobile-menu{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+}
+
+.mobile-menu.active{
+    max-height:1000px;
+}
+
+/* ===== TABLET ===== */
+
+@media(max-width:1024px){
+
+    .desktop-menu{
+        display:none;
+    }
+
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .glass-header{
+        padding-left:6px;
+        padding-right:6px;
+    }
+
+    .hero-title{
+        font-size:30px !important;
+        line-height:40px !important;
+    }
+
+    .hero-overlay{
+        background:
+        linear-gradient(
+        to top,
+        rgba(0,53,70,.94),
+        rgba(0,53,70,.65),
+        rgba(0,53,70,.25)
+        );
+    }
+
+    .card{
+        border-radius:22px;
+    }
+
+    .dropdown-menu{
+        display:none;
+    }
+
+    .mobile-menu a{
+        width:100%;
+    }
+
+    footer .grid{
+        grid-template-columns:1fr !important;
+    }
+
+}
+
+/* ===== SMALL MOBILE ===== */
+
+@media(max-width:480px){
+
+    .hero-title{
+        font-size:24px !important;
+        line-height:34px !important;
+    }
+
+    .card{
+        border-radius:18px;
+    }
+
+    .glass-header{
+        border-radius:0;
+    }
+
+    .mobile-menu{
+        padding-top:10px;
+    }
+
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.fade-up{
+    animation:fadeUp .8s ease;
+}
+
+</style>
+
+<script>
+
+tailwind.config = {
+    theme:{
+        extend:{
+            colors:{
+                primary:"#005570",
+                secondary:"#765928",
+                gold:"#d7bc8b",
+                error:"#d32f2f"
+            }
+        }
+    }
+}
+
+</script>
+
+</head>
+
+<body class="text-slate-800">
+
+<!-- HEADER -->
+
+<header class="glass-header fixed top-0 left-0 w-full z-50">
+
+<div class="max-w-[1700px] mx-auto px-3 lg:px-6">
+
+<div class="flex items-center justify-between h-[76px] sm:h-[82px] gap-2">
+
+<!-- LOGO -->
+
+<a href="index.html"
+class="flex items-center gap-3 shrink-0">
+
+<img
+  src="https://img2.pic.in.th/logo_lomkao2-no-BG.png"
+  alt="logo"
+  class="w-[44px] h-[44px] sm:w-[52px] sm:h-[52px] object-contain rounded-full border border-slate-200">
+
+<div class="leading-tight hidden sm:block">
+
+<h1 class="text-primary font-extrabold text-[18px] lg:text-[20px] tracking-[-0.3px]">
+โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+</h1>
+
+<p class="text-[11px] text-slate-500 uppercase tracking-[1.5px] font-semibold">
+LOMKAO CROWN PRINCE HOSPITAL
+</p>
+
+</div>
+
+</a>
+
+<!-- DESKTOP MENU -->
+
+<nav class="desktop-menu hidden xl:flex items-center gap-9 text-[14px] font-semibold text-slate-600">
+
+<!-- HOME -->
+
+<a href="index.html"
+class="flex flex-col items-center gap-1 text-primary relative">
+
+<span class="material-symbols-outlined text-[22px]">
+home
+</span>
+
+<span>
+หน้าแรก
+</span>
+
+<span class="absolute -bottom-[18px] w-full h-[3px] bg-primary rounded-full"></span>
+
+</a>
+
+<!-- ABOUT -->
+
+<div class="dropdown">
+
+<button class="flex flex-col items-center gap-1 hover:text-primary transition">
+
+<span class="material-symbols-outlined text-[22px]">
+groups
+</span>
+
+<div class="flex items-center gap-1">
+
+<span>
+เกี่ยวกับเรา
+</span>
+
+<span class="material-symbols-outlined text-[16px]">
+expand_more
+</span>
+
+</div>
+
+</button>
+
+<div class="dropdown-menu">
+
+<a href="about-history.html">
+ประวัติความเป็นมา
+</a>
+
+<a href="about-vision.html">
+วิสัยทัศน์ / พันธกิจ
+</a>
+
+<a href="about-executives.html">
+คณะผู้บริหาร
+</a>
+
+</div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div class="dropdown">
+
+<button class="flex flex-col items-center gap-1 hover:text-primary transition">
+
+<span class="material-symbols-outlined text-[22px]">
+medical_services
+</span>
+
+<div class="flex items-center gap-1">
+
+<span>
+บริการของเรา
+</span>
+
+<span class="material-symbols-outlined text-[16px]">
+expand_more
+</span>
+
+</div>
+
+</button>
+
+<div class="dropdown-menu">
+
+<a href="services.html">
+บริการทางการแพทย์
+</a>
+
+<a href="doctors.html">
+ค้นหาแพทย์
+</a>
+
+<a href="specialists.html">
+ศูนย์เฉพาะทาง
+</a>
+
+</div>
+
+</div>
+
+<!-- NEWS -->
+
+<div class="dropdown">
+
+<button class="flex flex-col items-center gap-1 hover:text-primary transition">
+
+<span class="material-symbols-outlined text-[22px]">
+description
+</span>
+
+<div class="flex items-center gap-1">
+
+<span>
+ข้อมูลข่าวสาร
+</span>
+
+<span class="material-symbols-outlined text-[16px]">
+expand_more
+</span>
+
+</div>
+
+</button>
+
+<div class="dropdown-menu">
+
+<a href="news.html">
+ข่าวประชาสัมพันธ์
+</a>
+
+<a href="articles.html">
+บทความสุขภาพ
+</a>
+
+</div>
+
+</div>
+
+<!-- ANNOUNCE -->
+
+<div class="dropdown">
+
+<button class="flex flex-col items-center gap-1 hover:text-primary transition">
+
+<span class="material-symbols-outlined text-[22px]">
+campaign
+</span>
+
+<div class="flex items-center gap-1">
+
+<span>
+ประกาศ
+</span>
+
+<span class="material-symbols-outlined text-[16px]">
+expand_more
+</span>
+
+</div>
+
+</button>
+
+<div class="dropdown-menu">
+
+<a href="procurement.html">
+จัดซื้อจัดจ้าง
+</a>
+
+<a href="jobs.html">
+รับสมัครงาน
+</a>
+
+</div>
+
+</div>
+
+<!-- CONTACT -->
+
+<a href="contact.html"
+class="flex flex-col items-center gap-1 hover:text-primary transition">
+
+<span class="material-symbols-outlined text-[22px]">
+call
+</span>
+
+<span>
+ติดต่อเรา
+</span>
+
+</a>
+
+</nav>
+
+                <!-- RIGHT -->
+
+                <div class="flex items-center gap-3">
+
+                    <a href="tel:1669"
+                   class="bg-error text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold shadow-lg hover:scale-105 transition text-sm sm:text-base whitespace-nowrap">
+                   
+                        ฉุกเฉิน 1669
+
+                    </a>
+
+                    <a href="donate.html"
+                    class="hidden sm:flex bg-secondary text-white px-5 py-3 rounded-2xl font-bold shadow-lg hover:scale-105 transition">
+
+                        บริจาค
+
+                    </a>
+
+                    <!-- MOBILE BUTTON -->
+
+                    <button
+                    onclick="toggleMenu()"
+                    class="lg:hidden w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center">
+
+                        <span class="material-symbols-outlined">
+                            menu
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- MOBILE MENU -->
+
+            <div id="mobileMenu" class="mobile-menu lg:hidden">
+
+                <div class="pb-5 flex flex-col gap-2">
+
+                    <a href="index.html"
+                    class="bg-primary text-white px-4 py-3 rounded-xl">
+
+                        หน้าแรก
+
+                    </a>
+
+                    <a href="history.html"
+                    class="bg-white border px-4 py-3 rounded-xl">
+
+                        เกี่ยวกับเรา
+
+                    </a>
+
+                    <a href="medical-service.html"
+                    class="bg-white border px-4 py-3 rounded-xl">
+
+                        บริการของเรา
+
+                    </a>
+
+                    <a href="news.html"
+                    class="bg-white border px-4 py-3 rounded-xl">
+
+                        ข่าวสาร
+
+                    </a>
+
+                    <a href="contact.html"
+                    class="bg-white border px-4 py-3 rounded-xl">
+
+                        ติดต่อเรา
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- MAIN -->
+
+<main class="pt-28 pb-14">
+
+<!-- HERO -->
+
+<section class="max-w-7xl mx-auto px-4 lg:px-10 mb-14">
+
+<div class="relative h-[420px] sm:h-[400px] lg:h-[540px]
+overflow-hidden rounded-[34px] shadow-2xl group">
+
+<!-- IMAGE -->
+
+<img id="slideImage"
+src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop"
+class="absolute inset-0 w-full h-full object-cover duration-1000 group-hover:scale-105">
+
+<!-- OVERLAY -->
+
+<div class="absolute inset-0 hero-overlay"></div>
+
+<!-- CONTENT -->
+
+<div class="relative z-10 h-full flex items-end">
+
+<div class="p-6 sm:p-10 lg:p-14 max-w-3xl text-white fade-up">
+
+<div class="flex items-center gap-3 mb-5">
+
+<span class="w-14 h-1 bg-gold rounded-full"></span>
+
+<span class="uppercase tracking-[4px] text-xs sm:text-sm text-gold font-semibold">
+Lomkao Crown Prince Hospital
+</span>
+
+</div>
+
+<h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+
+สืบสานพระราชปณิธาน
+<br>
+เพื่อประชาชนทุกคน
+
+</h1>
+
+<p class="text-white/90 text-sm sm:text-lg leading-relaxed max-w-2xl mb-8">
+
+โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+มุ่งมั่นให้บริการทางการแพทย์ที่มีคุณภาพ
+ด้วยหัวใจแห่งความเมตตาและมาตรฐานสากล
+
+</p>
+
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+
+  <a href="services.html"
+     class="bg-white text-primary px-6 py-3 rounded-2xl font-bold shadow-xl hover:scale-105 transition inline-block">
+    ดูบริการทั้งหมด
+  </a>
+
+  <a href="contact.html"
+     class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-2xl font-bold hover:bg-white/20 hover:scale-105 transition inline-block">
+    ติดต่อโรงพยาบาล
+  </a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- DOTS -->
+
+<div class="absolute bottom-6 right-6 z-20 flex gap-2">
+
+<div class="slider-dot w-3 h-3 rounded-full bg-white"></div>
+<div class="slider-dot w-3 h-3 rounded-full bg-white/40"></div>
+<div class="slider-dot w-3 h-3 rounded-full bg-white/40"></div>
+<div class="slider-dot w-3 h-3 rounded-full bg-white/40"></div>
+<div class="slider-dot w-3 h-3 rounded-full bg-white/40"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="max-w-7xl mx-auto px-4 lg:px-10">
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+<div class="card p-7">
+
+<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-5">
+
+<span class="material-symbols-outlined text-primary text-3xl">
+medical_information
+</span>
+
+</div>
+
+<h3 class="font-bold text-lg mb-2">
+ตรวจสอบสิทธิ
+</h3>
+
+<p class="text-slate-500 text-sm">
+ตรวจสอบสิทธิการรักษาพยาบาลออนไลน์
+</p>
+
+</div>
+
+<div class="card p-7">
+
+<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-5">
+
+<span class="material-symbols-outlined text-primary text-3xl">
+event_available
+</span>
+
+</div>
+
+<h3 class="font-bold text-lg mb-2">
+นัดหมายแพทย์
+</h3>
+
+<p class="text-slate-500 text-sm">
+จองคิวล่วงหน้าได้ง่ายและรวดเร็ว
+</p>
+
+</div>
+
+<div class="card p-7">
+
+<div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-5">
+
+<span class="material-symbols-outlined text-red-500 text-3xl">
+bloodtype
+</span>
+
+</div>
+
+<h3 class="font-bold text-lg mb-2">
+คลังเลือด
+</h3>
+
+<p class="text-slate-500 text-sm">
+ติดตามสถานะคลังเลือดประจำวัน
+</p>
+
+</div>
+
+<div class="card p-7">
+
+<div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-5">
+
+<span class="material-symbols-outlined text-green-600 text-3xl">
+location_on
+</span>
+
+</div>
+
+<h3 class="font-bold text-lg mb-2">
+แผนผังโรงพยาบาล
+</h3>
+
+<p class="text-slate-500 text-sm">
+ค้นหาอาคารและแผนกต่างๆ
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NEWS -->
+
+<section class="max-w-7xl mx-auto px-4 lg:px-10 mt-14">
+
+<div class="grid lg:grid-cols-2 gap-8">
+
+<!-- LEFT -->
+
+<div class="card overflow-hidden">
+
+  <img
+    src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1600&auto=format&fit=crop"
+    class="w-full h-72 object-cover">
+
+  <div class="p-8">
+
+    <span class="bg-blue-100 text-primary text-xs px-3 py-1 rounded-full font-bold">
+      ข่าวประชาสัมพันธ์
+    </span>
+
+    <h2 class="text-3xl font-extrabold mt-5 mb-4 leading-tight">
+      บริการทางการแพทย์
+      มาตรฐานสากล
+    </h2>
+
+    <p class="text-slate-600 leading-relaxed mb-6">
+      โรงพยาบาลมุ่งเน้นการรักษาที่ทันสมัย
+      พร้อมบุคลากรทางการแพทย์ที่มีคุณภาพ
+      เพื่อดูแลผู้ป่วยอย่างดีที่สุด
+    </p>
+
+    <a href="page2.html"
+       class="inline-block bg-primary text-white px-6 py-3 rounded-2xl font-bold shadow-lg hover:scale-105 transition">
+      อ่านเพิ่มเติม
+    </a>
+
+  </div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="flex flex-col gap-6">
+
+  <div class="card p-6">
+
+    <div class="flex flex-col sm:flex-row items-start gap-5">
+
+      <img
+        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop"
+        class="w-32 h-28 rounded-2xl object-cover">
+
+      <div>
+
+        <p class="text-primary text-sm font-bold mb-2">
+          20 มกราคม 2567
+        </p>
+
+        <h3 class="font-bold text-lg leading-snug mb-2">
+          เปิดให้บริการคลินิกเฉพาะทางใหม่
+        </h3>
+
+        <p class="text-slate-500 text-sm mb-4">
+          พร้อมเครื่องมือแพทย์ที่ทันสมัย
+          และแพทย์ผู้เชี่ยวชาญ
+        </p>
+
+        <a href="clinic.html"
+           class="inline-block bg-primary text-white px-4 py-2 rounded-xl font-bold hover:scale-105 transition">
+          อ่านเพิ่มเติม
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+<div class="card p-6">
+
+  <div class="flex flex-col sm:flex-row items-start gap-5">
+
+    <img
+      src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop"
+      class="w-full sm:w-32 h-52 sm:h-28 rounded-2xl object-cover">
+
+    <div>
+
+      <p class="text-primary text-sm font-bold mb-2">
+        18 มกราคม 2567
+      </p>
+
+      <h3 class="font-bold text-lg leading-snug mb-2">
+        ประชาสัมพันธ์วัคซีนไข้หวัดใหญ่
+      </h3>
+
+      <p class="text-slate-500 text-sm mb-4">
+        เข้ารับบริการได้ทุกวัน
+        ตามเวลาราชการ
+      </p>
+
+      <a href="vaccine.html"
+         class="inline-block bg-primary text-white px-4 py-2 rounded-xl font-bold hover:scale-105 transition">
+        อ่านเพิ่มเติม
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="bg-slate-900 mt-16 text-slate-300">
+
+<div class="max-w-7xl mx-auto px-4 lg:px-10 py-14">
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+<div>
+
+<h3 class="text-white text-2xl font-bold mb-5">
+โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+</h3>
+
+<p class="leading-relaxed text-slate-400">
+
+111 หมู่ 5 ต.หล่มเก่า
+อ.หล่มเก่า จ.เพชรบูรณ์ 67120
+
+<br><br>
+
+โทรศัพท์ : 056-709101
+
+</p>
+
+</div>
+
+<div class="grid grid-cols-2 gap-4">
+
+<a href="#" class="hover:text-white transition">
+เกี่ยวกับเรา
+</a>
+
+<a href="#" class="hover:text-white transition">
+บริการ
+</a>
+
+<a href="#" class="hover:text-white transition">
+ข่าวสาร
+</a>
+
+<a href="#" class="hover:text-white transition">
+ติดต่อเรา
+</a>
+
+</div>
+
+</div>
+
+<div class="border-t border-white/10 mt-10 pt-6 text-sm text-slate-500">
+
+© 2026 โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- FLOAT BUTTON -->
+
+<div class="fixed bottom-6 right-6 z-50">
+
+<button
+class="w-16 h-16 rounded-full bg-error text-white shadow-2xl
+hover:scale-110 active:scale-95 transition flex items-center justify-center">
+
+<span class="material-symbols-outlined text-3xl">
+call
+</span>
+
+</button>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document.getElementById("mobileMenu")
+    .classList.toggle("active");
+
+}
+
+/* SLIDER */
+
+const slides = [
+
+"https://img1.pic.in.th/images/599524981378384078.jpg",
+
+"https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=1600&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1600&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1600&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1600&auto=format&fit=crop"
+
+];
+
+let currentSlide = 0;
+
+const image = document.getElementById("slideImage");
+
+const dots = document.querySelectorAll(".slider-dot");
+
+function updateSlider(){
+
+    image.style.opacity = 0;
+
+    setTimeout(()=>{
+
+        image.src = slides[currentSlide];
+
+        image.style.opacity = 1;
+
+    },300);
+
+    dots.forEach(dot=>{
+
+        dot.classList.remove("bg-white");
+
+        dot.classList.add("bg-white/40");
+
+    });
+
+    dots[currentSlide].classList.remove("bg-white/40");
+
+    dots[currentSlide].classList.add("bg-white");
+
+}
+
+setInterval(()=>{
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+
+        currentSlide = 0;
+
+    }
+
+    updateSlider();
+
+},5000);
+
+</script>
+
+</body>
+</html>

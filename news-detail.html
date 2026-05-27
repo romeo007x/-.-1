@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>หน้าแรก | โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า | Lomkao Crown Prince Hospital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f4f8f9;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        /* เสริมมิติการ์ดกระจกให้ดูหรูหรานุ่มนวล */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "royal-gold-light": "#C5A97A",
+                        "surface-bright": "#f7fafb",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-surface": "#181c1d",
+                        "status-success": "#2D8A39",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ffd79a",
+                        "on-tertiary-container": "#ffe0c6",
+                        "surface-variant": "#e0e3e4",
+                        "on-secondary-container": "#795c2b",
+                        "on-primary-fixed": "#001f2b",
+                        "surface-container": "#ebeeef",
+                        "tertiary": "#754200",
+                        "on-secondary-fixed": "#281900",
+                        "error": "#d32f2f",
+                        "tertiary-fixed": "#ffdcbf",
+                        "primary": "#005570",
+                        "on-background": "#181c1d",
+                        "primary-fixed": "#bfe8ff",
+                        "primary-fixed-dim": "#82d0f6",
+                        "surface-container-highest": "#e0e3e4",
+                        "secondary-fixed": "#ffdead",
+                        "surface-background": "#FFFFFF",
+                        "surface": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#e2e8f0",
+                        "outline": "#6f787e",
+                        "secondary-fixed-dim": "#e7c186",
+                        "inverse-surface": "#2d3132",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#006686",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb872",
+                        "inverse-primary": "#82d0f6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#c7ebff",
+                        "surface-dim": "#d7dadb",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4a5568",
+                        "on-tertiary-fixed": "#2d1600",
+                        "background": "#f7fafb",
+                        "status-error": "#D32F2F",
+                        "secondary": "#765928",
+                        "inverse-on-surface": "#eef1f2",
+                        "tertiary-container": "#935915",
+                        "on-secondary-fixed-variant": "#5c4213",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f8fafc",
+                        "clinical-blue-dark": "#004D65",
+                        "primary-container": "#006f91"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+                        "headline-md": ["22px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["26px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-xl": ["42px", {"lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-fixed selection:text-primary">
+
+    <header class="bg-white/80 backdrop-blur-md border-b border-royal-gold-light/40 fixed top-0 w-full z-50 transition-all duration-300">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-4 md:px-margin-desktop py-3.5 gap-4">
+        
+        <!-- Logo Section -->
+        <a href="index.html" class="flex items-center gap-3 min-w-0 shrink-0 group">
+            <img src="https://img2.pic.in.th/logo_lomkao2-no-BG.png" alt="Logo" class="w-10 h-10 object-contain transition-transform group-hover:scale-105">
+            <h1 class="font-headline-md text-sm sm:text-base md:text-lg lg:text-xl text-clinical-blue-dark tracking-wide font-bold leading-tight whitespace-nowrap">
+                โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+            </h1>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-6 shrink-0">
+            <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="index.html">หน้าแรก</a>
+            
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+                    เกี่ยวกับเรา <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-56 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="about-history.html">ประวัติความเป็นมา</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="about-vision.html">วิสัยทัศน์ พันธกิจ</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="about-executives.html">คณะผู้บริหาร</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+                    บริการของเรา <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-56 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="services.html">บริการทางการแพทย์</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="specialists.html">ศูนย์เชี่ยวชาญเฉพาะทาง</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="doctors.html">ค้นหาแพทย์</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-primary font-bold border-b-2 border-primary pb-1 transition-colors duration-200">
+                    ข้อมูลข่าวสาร <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-56 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="news.html">ข่าวประชาสัมพันธ์</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="articles.html">บทความสุขภาพ</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary transition-colors duration-200">
+                    ประกาศฯ <span class="material-symbols-outlined text-sm group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                </button>
+                <div class="absolute left-0 top-full mt-2 w-64 bg-surface-container-lowest shadow-xl rounded-xl border border-outline-variant/60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0">
+                    <div class="p-2">
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="procurement.html">จัดซื้อจัดจ้าง</a>
+                        <a class="block px-4 py-2.5 text-sm text-on-surface hover:bg-primary-fixed hover:text-primary rounded-lg transition-colors" href="jobs.html">รับสมัครงาน</a>
+                    </div>
+                </div>
+            </div>
+            
+            <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="contact.html">ติดต่อเรา</a>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+            <button class="bg-error text-on-error px-3 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-red-700 shadow-md shadow-error/20 hover:shadow-lg active:scale-95 transition-all" onclick="window.location.href='emergency.html'">
+                <span class="sm:hidden">1669</span><span class="hidden sm:inline">ฉุกเฉิน 1669</span>
+            </button>
+            <button class="bg-secondary text-on-secondary px-3 sm:px-5 py-2 rounded-xl font-bold text-xs sm:text-sm hover:bg-amber-800 shadow-md shadow-secondary/10 active:scale-95 transition-all" onclick="window.location.href='donations.html'">บริจาค</button>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-on-surface-variant hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-2xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-3 shadow-inner">
+        <a class="block text-primary font-bold py-1.5 border-b" href="index.html">หน้าแรก</a>
+        <div class="py-1">
+            <p class="text-xs font-semibold text-royal-gold-light uppercase tracking-wider mb-1">เกี่ยวกับเรา</p>
+            <a class="block pl-3 py-1.5 text-sm text-on-surface-variant" href="about-history.html">- ประวัติความเป็นมา</a>
+        </div>
+        <a class="block text-on-surface-variant font-medium py-1.5" href="contact.html">ติดต่อเรา</a>
+    </div>
+</header>
+<main class="flex-grow">
+<!-- Breadcrumb -->
+<div class="max-w-container-max mx-auto px-margin-desktop pt-8">
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-bold text-label-bold">
+<a class="hover:text-primary" href="#">หน้าแรก</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary" href="#">ข่าวประชาสัมพันธ์</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary truncate max-w-[300px] md:max-w-none">ทีโอเอมอบเงินบริจาคผู้ป่วยยากจนในชุมชน...</span>
+</nav>
+</div>
+<!-- Article Header -->
+<article class="max-w-container-max mx-auto px-margin-desktop py-8">
+<header class="mb-12">
+<h1 class="font-headline-xl text-headline-xl mb-6 text-on-surface leading-tight max-w-4xl">
+                    ทีโอเอมอบเงินบริจาคผู้ป่วยยากจนในชุมชน และผู้ป่วยระยะสุดท้ายในเขตชุมชนรอบโรงพยาบาล
+                </h1>
+<div class="flex flex-wrap items-center gap-6 text-on-surface-variant font-body-md text-body-md border-y border-outline-variant/30 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<span>24 ตุลาคม 2567</span>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant/50 pl-6">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<span>1,245 ครั้ง</span>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant/50 pl-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">share</span>
+<button class="hover:text-primary transition-colors">แชร์ข่าวสาร</button>
+</div>
+</div>
+</header>
+<!-- Hero Image -->
+<div class="relative w-full aspect-[21/9] rounded-xl overflow-hidden mb-12 shadow-sm border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="A formal donation ceremony inside a bright, modern hospital conference hall with blue and gold accents. Corporate representatives in professional attire are handing over a symbolic oversized check to hospital directors. The atmosphere is clinical yet warm, reflecting a moment of corporate social responsibility within a healthcare environment. Soft daylight enters through large windows, illuminating the pristine tiled floors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvSMv30xzx0JYakP69BhkVzc5-MxEIoczB4VnrF9zaYg18HdIXNsOeyBxDkYZLNGSeX71JYrBu1PziLFaubyLBZ-uNDkWp47mqiKSMq1XjHexzAiumB1F0huBbK2PzbZusw6WAdWapPwiAyjt5R9fbBgFPgUKpPtfb45gg8udt3iGboh2eXPYSKCttIZo-Nzf_cnkohIufwPxE_3yVTYuFEdaGKfcqpYDDATI4chWgGb4b8WYCIXpxxOVU2kqnGX1bE0Cw86CyjKA">
+<div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded text-label-sm font-label-sm">
+                    ภาพบรรยากาศการมอบทุนบริจาค ณ ห้องประชุมวิชาการ
+                </div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Main Body -->
+<div class="lg:col-span-8 space-y-8 font-body-md text-body-md text-on-surface leading-relaxed">
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        เมื่อวันที่ 24 ตุลาคม 2567 ทางบริษัท ทีโอเอ เพ้นท์ (ประเทศไทย) จำกัด (มหาชน) ได้เดินทางมายังโรงพยาบาลสมเด็จพระยุพราชหล่มเก่า เพื่อร่วมสมทบทุนช่วยเหลือโครงการดูแลผู้ป่วยยากจนและผู้ป่วยระยะสุดท้ายในชุมชน (Palliative Care) ซึ่งเป็นภารกิจหลักในการดูแลสุขภาวะคนไทยในพื้นที่ห่างไกล
+                    </p>
+<h2 class="font-headline-md text-headline-md text-primary mt-8">รายละเอียดโครงการ</h2>
+<p>
+                        โครงการดังกล่าวมีวัตถุประสงค์เพื่อลดความเหลื่อมล้ำในการเข้าถึงบริการสาธารณสุข โดยเฉพาะกลุ่มผู้ป่วยติดเตียงและผู้ป่วยระยะสุดท้ายที่ต้องการการดูแลเป็นพิเศษแบบประคับประคองที่บ้าน ซึ่งเงินบริจาคจำนวนนี้จะถูกนำไปใช้ในด้านต่างๆ ดังนี้:
+                    </p>
+<ul class="space-y-4 ml-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span>จัดซื้ออุปกรณ์ทางการแพทย์ที่จำเป็นสำหรับการทำ Home Care เช่น เครื่องผลิตออกซิเจน และเตียงผู้ป่วย</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span>สนับสนุนค่าพาหนะและเครื่องอุปโภคบริโภคสำหรับทีมเยี่ยมบ้านพยาบาลวิชาชีพ</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span>กองทุนช่วยเหลือค่ายาและเวชภัณฑ์สำหรับผู้ป่วยยากไร้ที่ไม่สามารถเบิกจ่ายได้ตามสิทธิ์ปกติ</span>
+</li>
+</ul>
+<blockquote class="border-l-4 border-royal-gold-light bg-surface-container-low p-8 rounded-r-xl italic text-on-surface-variant">
+                        "ทางโรงพยาบาลขอขอบคุณภาคเอกชนที่เล็งเห็นความสำคัญของการดูแลผู้ป่วยในระดับชุมชน การสนับสนุนในครั้งนี้จะช่วยให้เราสามารถขยายขอบเขตการรักษาไปได้ไกลกว่ารั้วโรงพยาบาล" - นายแพทย์ผู้อำนวยการโรงพยาบาล
+                    </blockquote>
+<h2 class="font-headline-md text-headline-md text-primary mt-8">กิจกรรมเพิ่มเติม</h2>
+<p>
+                        นอกจากการมอบเงินบริจาคแล้ว ทีมอาสาสมัครจากทีโอเอยังได้ร่วมเดินทางไปเยี่ยมบ้านผู้ป่วยในพื้นที่รอบนอก เพื่อมอบถุงยังชีพและให้กำลังใจครอบครัวผู้ดูแล ซึ่งเป็นส่วนหนึ่งของกิจกรรม CSR ขององค์กรที่ทำอย่างต่อเนื่องในทุกปี
+                    </p>
+</div>
+<!-- Sidebar Gallery & Info -->
+<aside class="lg:col-span-4 space-y-8">
+<div class="bg-surface-container-highest/30 p-6 rounded-xl border border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md mb-6 border-b border-royal-gold-light pb-2">อัลบั้มภาพกิจกรรม</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/20 group cursor-pointer">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Detail shot of medical equipment being donated to a community center. The focus is on a new clinical monitor with digital readings in a clean, white-walled room. The lighting is soft and professional, echoing a clinical medical environment with subtle blue tints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIDOBeb91hr0YzxxnjGW3lj6GnXN8wh3fUpYYK2t9MdgG-rzeloK9Jq1Wp7icmEQZrHT_EW726GgvswI1GZKZFK6KaUGsWO-eGeod5aFQZxW251rRPwEqVQMHno2qqz_HR_L3DElN4pLL830m0CHQePut0DEEcCs0dtAGc8XUPCOk77StTVTqbtDbSEE2rjkpUasVxr1YzCoiNKUXoqZggLewoVJ6E6B1YTnIzs12hzcL1breQSwoBtPFnG1UhCd-hTXmfQkPbKaw">
+</div>
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/20 group cursor-pointer">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="A nurse in a crisp white uniform smiling warmly at an elderly patient during a home visit. The room is humble yet clean, bathed in warm afternoon sunlight. This captures a compassionate moment of care outside the hospital walls, maintaining a professional yet empathetic clinical photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmF3yXaOH5c4ANRnQCzDjPwJNWn63ewPcadCvS2Rl_SOQr6k2OiXHnE33s4HPqTH2QOdC6V1-TQL86oa9X_BvH-HYZkDfnapyN2WxF2bMJqHjNlxiJgxz_iChuCITbHSX5ol0sxuRWBfPrqQvMl9AwgICBxzV77QBsp7-9alqK3gZYsR-hNTRrJyTWIl1wu15jFlfSMPzjDFD-LYaSp3xbHZBdqFmXXZTSed1Cmmd3ntH9ZOvNaKDIhXWHm4C7aj4cXA-16li8Nvo">
+</div>
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/20 group cursor-pointer relative">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Wide shot of the hospital lobby with clean white floors and blue decorative columns. Professional medical staff are visible in the background, walking purposefully. The scene is bright and airy, emphasizing the clinical precision and modern infrastructure of the facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9oGcqzFnmjUn5Y7FhkdghWlICGjq8WXDBJetwhTL559EKTZcXkWdBSRRsSjudgvV1IEMOIiAlD4MLsswkdqAiKYUaBgvhq3AqvtHva5sjZTKvIhVX5H-5dXolH3FKjlQ-9_Wk8YyF0dWmorU4R4a1nMi22Vd5wmqUiATLi2VcCYrNoyteRUG2ZxtayvQrLoWgfMA69OKj2jXKV2RXqtZNAaLa4r_Qamok6_8WJNlyYZgjOiLWuT3vn8Euv76ncWoxLUgI_D20nwQ">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center text-white font-label-bold text-label-bold">
+                                    +12 รูป
+                                </div>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden border border-outline-variant/20 group cursor-pointer">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" data-alt="Close-up of hands shaking across a wooden table, symbolizing a partnership between the hospital and a corporate sponsor. The image uses a shallow depth of field, highlighting the professional attire and the clean environment. The tones are muted blues and warm whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBylHEXYMy3aP-XW6f8PjWWyaSjp_nfiNeHzvSJIXOT0wug11XPYE9fnZODvjty3rPDwnkXXb3gDlnmQHtGJDjFCrYTXllesaQCDAB6TtbW7ELCVb6XHO2NDZJTMWpfRIrzv1FgDa14LQUUxNLJq2npXVQ9KaiN4p3KYOW35Sl3B923LIVzWDLe8k32S_EWPdKhbUx79D6bP0YUrANyNk75u9O6oa8rNDUqvtyqJw35FEpphUgF-mGDya91SNXJrLn3tbn2juMUYdw">
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-primary text-primary font-label-bold rounded-lg hover:bg-primary hover:text-white transition-all">
+                            ดูภาพทั้งหมด
+                        </button>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2 pt-4">
+<span class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm">#บริจาค</span>
+<span class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm">#ทีโอเอ</span>
+<span class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm">#ดูแลผู้ป่วยชุมชน</span>
+<span class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm">#หล่มเก่า</span>
+</div>
+</aside>
+</div>
+</article>
+<!-- Related News -->
+<section class="bg-surface-container-low py-16">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-clinical-blue-dark">ข่าวสารที่เกี่ยวข้อง</h2>
+<div class="h-1 w-20 bg-royal-gold-light mt-2"></div>
+</div>
+<a class="text-primary font-label-bold hover:underline flex items-center gap-1" href="#">
+                        ดูข่าวทั้งหมด
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Related Card 1 -->
+<div class="bg-white rounded-lg border border-outline-variant/30 overflow-hidden hover:shadow-lg transition-shadow group">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A clean, sterile hospital corridor with bright fluorescent lighting. Patients and medical staff move calmly through the hallway. The aesthetic is extremely modern and professional, with a focus on hygiene and efficient healthcare flow. Soft blues and whites dominate the palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUyrPG4oHCB6bPzHZgpINYfz2TRMToGVl-spbFSlbjHnXS70M7zXjGqTom7w7qbkjDAWpxn6HscNRzMST-oj-aBTdQev0j9tcS97JAhmrrRbKgd6Tp4epy5rljpK1nU-wyZMQRjF7btcaqvHIPr7uL21S1bKrJyHP8uCzLoDYyVcbmoRzm69hchbuYt7SVmu8zleki6Btzqa1vZThl9NTes89P8jB9AjQi9Eb81UILVHwhqS8wiGsn3E7X-Y560NRN9KembH0NWSg">
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-secondary mb-2">ข่าวประชาสัมพันธ์</p>
+<h3 class="font-headline-md text-[18px] leading-snug mb-4 line-clamp-2">ตารางการฉีดวัคซีนไข้หวัดใหญ่ สำหรับผู้สูงอายุ ประจำปี 2567</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>20 ตุลาคม 2567</span>
+</div>
+</div>
+</div>
+<!-- Related Card 2 -->
+<div class="bg-white rounded-lg border border-outline-variant/30 overflow-hidden hover:shadow-lg transition-shadow group">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A medical professional demonstrating the use of a specialized testing device in a lab environment. The lighting is crisp and cool, highlighting the metallic surfaces of the equipment. The background is a clean clinical blue, reinforcing a theme of medical precision and innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYBhGySr9ApFelD_JzcvNMG97rbjIBD7RQ9p4ZJJsrQcB260maUSQoVofduDzkabt5klWVu8vLeDjvTNiMB32sV26UsdBtiQeqaN9KBfIBvTgtiy6eZiKg4v7lBmv_Qj8EGBM1_PSjCksvJvYROVkwoboXFAqFP7HytVY0kzTWFWYbDtdoRHMpdeT20AZXzbnfPwZ9cutNQHmqs_W8Jxg7UOAv-kuwGnNT-uQBMU0DNocxDaCPoDoEXQhn-haQ1KEsU8UtkthnXQ0">
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-secondary mb-2">ข่าวสารการแพทย์</p>
+<h3 class="font-headline-md text-[18px] leading-snug mb-4 line-clamp-2">โรงพยาบาลสมเด็จพระยุพราชฯ รับมอบเครื่องมือแพทย์นวัตกรรมใหม่</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>15 ตุลาคม 2567</span>
+</div>
+</div>
+</div>
+<!-- Related Card 3 -->
+<div class="bg-white rounded-lg border border-outline-variant/30 overflow-hidden hover:shadow-lg transition-shadow group">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A team of doctors and community health workers standing together in front of a rural health outpost. They are dressed in light professional gear, ready for field work. The setting is bright and cheerful, with a warm morning light that feels hopeful and community-focused. The aesthetic remains professional and high-quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA81S8PQIG7VgHe1aA2nuEMpH2HzXZ6cgL0GBEnn_rgnEPprPZ4PsctGAO7P_tdzx-NReMviRMI4-dYY2sI55NR1b6yTmWVkFYHXCRIBrkTFO2wfGOCyBtlXaCiZpDYoKPoDFUm0eB0qDp-ryj0t9hfTjsT4frtiIZ1MTJGUIqj-cUbxqEcO2WhOBFQSP2oJfXZfODfDyUmLJZ4oG2N2EqOXGZW_ULQtbGr51KjNMl9VWYIR-s8eTErTcPMH5UoDswBHD_kKFBIdNU">
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-secondary mb-2">กิจกรรมชุมชน</p>
+<h3 class="font-headline-md text-[18px] leading-snug mb-4 line-clamp-2">หน่วยแพทย์เคลื่อนที่ออกให้บริการพี่น้องชาวหล่มเก่า พื้นที่ห่างไกล</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>10 ตุลาคม 2567</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface full-width bottom-0 border-t border-royal-gold-light dark:border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-start max-w-container-max mx-auto px-margin-desktop py-12 gap-8">
+<div class="max-w-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim block mb-4">
+                    โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+                </span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant mb-6">
+                    เป็นผู้นำด้านบริการสาธารณสุขด้วยมาตรฐานสากล ภายใต้ความศรัทธาและความเป็นสิริมงคลของแผ่นดิน
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-90" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-90" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:opacity-90" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-on-surface dark:text-inverse-on-surface">เกี่ยวกับเรา</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-royal-gold-light transition-colors" href="#">ประวัติโรงพยาบาล</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-royal-gold-light transition-colors" href="#">วิสัยทัศน์และพันธกิจ</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-royal-gold-light transition-colors" href="#">คณะผู้บริหาร</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-label-bold text-on-surface dark:text-inverse-on-surface">เมนูอื่นๆ</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-royal-gold-light transition-colors" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-royal-gold-light transition-colors" href="#">ข้อตกลงการใช้งาน</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-royal-gold-light transition-colors" href="#">แผนผังเว็บไซต์</a>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 text-center">
+<p class="font-label-bold text-label-bold text-on-surface-variant dark:text-surface-variant">
+                © 2024 โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า. สงวนลิขสิทธิ์.
+            </p>
+</div>
+</footer>
+<!-- Admin Login Secret Button -->
+<a class="fixed bottom-4 right-4 w-6 h-6 bg-transparent opacity-5 hover:opacity-100 transition-opacity rounded-full flex items-center justify-center overflow-hidden" href="/admin" title="Admin Portal">
+<span class="material-symbols-outlined text-[12px] text-on-surface-variant">lock</span>
+</a>
+<script>
+        // Micro-interaction for share button
+        document.querySelector('button.hover\\:text-primary').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'ข่าวประชาสัมพันธ์ รพ.สมเด็จพระยุพราชหล่มเก่า',
+                    text: 'ทีโอเอมอบเงินบริจาคผู้ป่วยยากจนในชุมชน และผู้ป่วยระยะสุดท้าย',
+                    url: window.location.href,
+                })
+            } else {
+                alert('Copied link to clipboard!');
+                navigator.clipboard.writeText(window.location.href);
+            }
+        });
+
+        // Simple scroll indicator reveal
+        window.onscroll = function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        };
+    </script>
+</body></html>

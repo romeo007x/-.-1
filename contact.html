@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ติดต่อเรา - โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <style>
+    :root {
+        --be-vietnam-pro: 'Be Vietnam Pro', sans-serif;
+    }
+
+    body {
+        font-family: var(--be-vietnam-pro);
+        background-color: #f7fafb;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid #E2E8F0;
+    }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+    }
+
+    /* ตั้งค่าเริ่มต้น dropdown */
+    .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px) scale(0.98);
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s;
+        pointer-events: none;
+    }
+
+    /* เพิ่มพื้นที่ hover กันเมาส์หลุด */
+    .dropdown-group {
+        position: relative;
+    }
+
+    .dropdown-group::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 20px;
+    }
+
+    /* Desktop */
+    @media (min-width: 1024px) {
+
+        .dropdown-group:hover .dropdown-menu,
+        .dropdown-menu:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .dropdown-group:hover .arrow-icon {
+            transform: rotate(180deg);
+        }
+    }
+</style>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                    "surface-bright": "#f7fafb",
+                    "primary-fixed": "#bfe8ff",
+                    "on-secondary-fixed-variant": "#5c4213",
+                    "surface-container": "#ebeeef",
+                    "surface": "#f7fafb",
+                    "surface-variant": "#e0e3e4",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#6a3b00",
+                    "surface-container-high": "#e5e9ea",
+                    "tertiary": "#754200",
+                    "surface-container-highest": "#e0e3e4",
+                    "primary-fixed-dim": "#82d0f6",
+                    "primary": "#005570",
+                    "on-primary-container": "#c7ebff",
+                    "error-container": "#ffdad6",
+                    "status-success": "#2D8A39",
+                    "surface-container-low": "#f1f4f5",
+                    "on-secondary-fixed": "#281900",
+                    "inverse-surface": "#2d3132",
+                    "inverse-on-surface": "#eef1f2",
+                    "on-background": "#181c1d",
+                    "clinical-blue-dark": "#004D65",
+                    "tertiary-fixed": "#ffdcbf",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ffd79a",
+                    "on-surface-variant": "#3f484d",
+                    "on-primary": "#ffffff",
+                    "outline": "#6f787e",
+                    "royal-gold-light": "#C5A97A",
+                    "on-primary-fixed-variant": "#004d66",
+                    "tertiary-fixed-dim": "#ffb872",
+                    "status-error": "#D32F2F",
+                    "on-surface": "#181c1d",
+                    "on-tertiary-fixed": "#2d1600",
+                    "primary-container": "#006f91",
+                    "surface-dim": "#d7dadb",
+                    "on-tertiary-container": "#ffe0c6",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#bfc8ce",
+                    "surface-tint": "#006686",
+                    "secondary-fixed": "#ffdead",
+                    "background": "#f7fafb",
+                    "secondary-fixed-dim": "#e7c186",
+                    "surface-background": "#FFFFFF",
+                    "secondary": "#765928",
+                    "on-secondary-container": "#795c2b",
+                    "inverse-primary": "#82d0f6",
+                    "on-primary-fixed": "#001f2b",
+                    "tertiary-container": "#935915"
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface-bright text-on-surface">
+
+    <header class="bg-white sticky top-0 z-50 border-b border-surface-container shadow-sm">
+        <div class="flex justify-between items-center max-w-container-max mx-auto px-4 lg:px-10 py-4">
+            
+            <div class="flex items-center gap-3 select-none">
+                <div class="w-[5px] h-7 bg-royal-gold-light rounded-sm flex-shrink-0"></div>
+                <a class="font-bold text-clinical-blue-dark leading-tight text-lg md:text-xl whitespace-nowrap" href="index.html">
+                    โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-2 lg:gap-6">
+                <nav class="hidden lg:flex gap-1 xl:gap-2 items-center mr-2">
+                    <div class="relative py-2">
+                        <a class="text-on-surface-variant font-medium hover:text-primary px-2 py-2 transition-all block" href="index.html">หน้าแรก</a>
+                    </div>
+
+                    <div class="relative dropdown-group py-2">
+                        <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary px-2 py-2 focus:outline-none transition-colors">
+                            เกี่ยวกับเรา
+                            <span class="material-symbols-outlined text-sm arrow-icon transition-transform duration-500">keyboard_arrow_down</span>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-52 bg-white rounded-2xl shadow-xl border border-outline-variant p-3 z-50 dropdown-menu"> 
+                            <a href="about-history.html" class="block px-4 py-2 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary">ประวัติความเป็นมา</a>
+                            <a href="vision.html" class="block px-4 py-2 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary">วิสัยทัศน์ พันธกิจ</a>
+                            <a href="executives.html" class="block px-4 py-2 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary">คณะผู้บริหาร</a>
+                        </div>
+                    </div>
+
+                    <div class="relative dropdown-group py-2">
+                        <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary px-2 py-2 focus:outline-none transition-colors">
+                            บริการของเรา
+                            <span class="material-symbols-outlined text-sm arrow-icon transition-transform duration-500">keyboard_arrow_down</span>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-outline-variant py-3 opacity-0 scale-95 pointer-events-none transition-all duration-200 transform z-50 dropdown-menu">
+                            <a href="services.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">บริการทางการแพทย์</a>
+                            <a href="specialists.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">ศูนย์เชี่ยวชาญเฉพาะทาง</a>
+                            <a href="doctors.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">ค้นหาแพทย์ / ตารางเวรแพทย์</a>
+                        </div>
+                    </div>
+
+                    <div class="relative dropdown-group py-2">
+                        <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary px-2 py-2 focus:outline-none transition-colors">
+                            ข้อมูลข่าวสาร
+                            <span class="material-symbols-outlined text-sm arrow-icon transition-transform duration-500">keyboard_arrow_down</span>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-52 bg-white rounded-2xl shadow-xl border border-outline-variant py-3 opacity-0 scale-95 pointer-events-none transition-all duration-200 transform z-50 dropdown-menu">
+                            <a href="news.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">ข่าวประชาสัมพันธ์</a>
+                            <a href="articles.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">บทความสุขภาพ</a>
+                        </div>
+                    </div>
+
+                    <div class="relative dropdown-group py-2">
+                        <button class="flex items-center gap-1 text-on-surface-variant font-medium hover:text-primary px-2 py-2 focus:outline-none transition-colors">
+                            ประกาศประชาสัมพันธ์
+                            <span class="material-symbols-outlined text-sm arrow-icon transition-transform duration-500">keyboard_arrow_down</span>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-52 bg-white rounded-2xl shadow-xl border border-outline-variant py-3 opacity-0 scale-95 pointer-events-none transition-all duration-200 transform z-50 dropdown-menu">
+                            <a href="procurement.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">จัดซื้อจัดจ้าง</a>
+                            <a href="jobs.html" class="block px-5 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors">รับสมัครงาน</a>
+                        </div>
+                    </div>
+
+                    <div class="relative py-2">
+                        <a class="font-semibold text-primary border-b-2 border-primary px-2 py-2 transition-all block" href="contact.html">ติดต่อเรา</a>
+                    </div>
+                </nav>
+
+                <div class="flex gap-2 items-center select-none">
+                    <a class="bg-error text-white px-4 py-2 rounded-full hover:brightness-110 active:scale-95 transition-all text-xs md:text-sm inline-block shadow-sm font-semibold whitespace-nowrap" href="tel:1669">
+                        ฉุกเฉิน (Emergency)
+                    </a>
+                    <a class="hidden sm:inline-block bg-[#765928] text-white px-5 py-2 rounded-full hover:brightness-110 active:scale-95 transition-all text-xs md:text-sm text-center font-semibold shadow-sm whitespace-nowrap" href="donations.html">
+                        บริจาค
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-clinical-blue-dark p-2 hover:bg-surface-container rounded-full transition-all flex items-center justify-center focus:outline-none">
+                    <span id="menu-icon" class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-dropdown-menu" class="hidden lg:hidden border-t border-outline-variant bg-surface-container-low px-4 py-4 space-y-1 shadow-inner max-h-[85vh] overflow-y-auto">
+            <nav class="flex flex-col gap-1">
+                <a class="p-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary transition-all flex items-center gap-2 font-medium" href="index.html">
+                    <span class="material-symbols-outlined text-xl">home</span>หน้าแรก
+                </a>
+
+                <div>
+                    <button class="w-full p-3 rounded-xl text-on-surface-variant hover:bg-white hover:text-primary transition-all flex items-center justify-between text-left mobile-submenu-btn font-medium">
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-xl">corporate_fare</span>เกี่ยวกับเรา</span>
+                        <span class="material-symbols-outlined text-xl submenu-arrow transition-transform">keyboard_arrow_down</span>
+                    </button>
+                    <div class="hidden pl-9 pr-4 py-1 space-y-1 bg-white/40 rounded-xl mt-1 mobile-submenu">
+                        <a href="about-history.html" class="block py-2.5 text-sm text-on-surface-variant hover:text-primary">ประวัติความเป็นมา</a>
+                        <a href="about-vision.html" class="block py-2.5 text-sm text-on-surface-variant hover:text-primary">วิสัยทัศน์ พันธกิจ</a>
+                        <a href="about-executives.html" class="block py-2.5 text-sm text-on-surface-variant hover:text-primary">คณะผู้บริหาร</a>
+                    </div>
+                </div>
+
+                <a class="p-3 rounded-xl text-primary bg-white transition-all flex items-center gap-2 shadow-sm font-semibold" href="contact.html">
+                    <span class="material-symbols-outlined text-xl">mail</span>ติดต่อเรา
+                </a>
+                
+                <a class="sm:hidden p-3 rounded-xl font-semibold text-white bg-[#765928] text-center hover:brightness-110 transition-all flex items-center justify-center gap-2 mt-2" href="donations.html">
+                    <span class="material-symbols-outlined text-xl">volunteer_activism</span>ร่วมบริจาค
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-16">
+        <section class="mb-16">
+            <h1 class="font-headline-xl text-headline-xl text-clinical-blue-dark mb-4">ติดต่อเรา</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">เราพร้อมดูแลคุณและครอบครัวด้วยความเชี่ยวชาญและความใส่ใจในมาตรฐานระดับสากล ติดต่อสอบถามข้อมูลบริการหรือนัดหมายล่วงหน้า</p>
+        </section>
+        
+        <div class="bento-grid">
+            <div class="col-span-12 lg:col-span-5 flex flex-col gap-gutter">
+                <div class="bg-surface-background p-8 rounded-xl border border-outline-variant shadow-sm flex flex-col gap-6">
+                    <h2 class="font-headline-md text-headline-md text-primary">ข้อมูลการติดต่อ</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-clinical-blue-dark">location_on</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-primary mb-1">ที่อยู่</p>
+                                <p class="font-body-md text-body-md text-on-surface-variant">111 หมู่ 5 ตำบลหล่มเก่า อำเภอหล่มเก่า จังหวัดเพชรบูรณ์ 67120</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-clinical-blue-dark">call</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-primary mb-1">โทรศัพท์</p>
+                                <p class="font-body-md text-body-md text-on-surface-variant">056-709-101 ถึง 103</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined text-clinical-blue-dark">fax</span>
+                            </div>
+                            <div>
+                                <p class="font-label-bold text-label-bold text-primary mb-1">โทรสาร (Fax)</p>
+                                <p class="font-body-md text-body-md text-on-surface-variant">056-709-104</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-clinical-blue-dark text-on-primary p-8 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h2 class="font-headline-md text-headline-md mb-6">เวลาทำการ</h2>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center border-b border-primary-container pb-3">
+                                <span class="font-body-md flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-secondary-fixed">emergency</span>
+                                    อุบัติเหตุและฉุกเฉิน
+                                </span>
+                                <span class="font-label-bold text-primary-fixed">ตลอด 24 ชั่วโมง</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-1">
+                                <span class="font-body-md flex items-center gap-2">
+                                    <span class="material-symbols-outlined">medical_services</span>
+                                    แผนกผู้ป่วยนอก (OPD)
+                                </span>
+                                <span class="font-label-bold">08:00 - 16:00 น.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 opacity-10">
+                        <span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-span-12 lg:col-span-7">
+                <div class="bg-surface-background p-8 md:p-12 rounded-xl border border-outline-variant h-full">
+                    <h2 class="font-headline-md text-headline-md text-primary mb-8">ส่งข้อความถึงเรา</h2>
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="col-span-2 md:col-span-1">
+                            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">ชื่อ-นามสกุล</label>
+                            <input class="w-full h-12 px-4 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="ระบุชื่อผู้ติดต่อ" type="text" required />
+                        </div>
+                        <div class="col-span-2 md:col-span-1">
+                            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">เบอร์โทรศัพท์</label>
+                            <input class="w-full h-12 px-4 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="08x-xxx-xxxx" type="tel" required />
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">หัวข้อที่ต้องการติดต่อ</label>
+                            <select class="w-full h-12 px-4 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md bg-white">
+                                <option>นัดหมายล่วงหน้า</option>
+                                <option>สอบถามสิทธิการรักษา</option>
+                                <option>ร้องเรียน / แนะนำบริการ</option>
+                                <option>ติดต่อหน่วยงานภายใน</option>
+                            </select>
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-2">ข้อความของคุณ</label>
+                            <textarea class="w-full px-4 py-3 rounded border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md" placeholder="พิมพ์ข้อความของคุณที่นี่..." rows="4" required></textarea>
+                        </div>
+                        <div class="col-span-2">
+                            <button class="w-full md:w-auto px-10 py-4 bg-primary text-on-primary rounded font-label-bold hover:bg-clinical-blue-dark transition-all transform active:scale-95 shadow-md" type="submit">
+                                ส่งข้อมูลการติดต่อ
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <section class="mt-gutter">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <a class="flex items-center gap-6 p-6 bg-surface-background rounded-xl border border-outline-variant hover:border-primary transition-all group" href="https://facebook.com" target="_blank">
+                    <div class="w-14 h-14 rounded-lg bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2]">
+                        <span class="material-symbols-outlined text-3xl">social_leaderboard</span>
+                    </div>
+                    <div>
+                        <p class="font-label-bold text-label-bold text-on-surface">Facebook</p>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant">รพ.สมเด็จพระยุพราชหล่มเก่า</p>
+                    </div>
+                </a>
+                <a class="flex items-center gap-6 p-6 bg-surface-background rounded-xl border border-outline-variant hover:border-primary transition-all group" href="https://line.me" target="_blank">
+                    <div class="w-14 h-14 rounded-lg bg-[#06C755]/10 flex items-center justify-center text-[#06C755]">
+                        <span class="material-symbols-outlined text-3xl">chat</span>
+                    </div>
+                    <div>
+                        <p class="font-label-bold text-label-bold text-on-surface">Line Official</p>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant">@lomkaohospital</p>
+                    </div>
+                </a>
+                <a class="flex items-center gap-6 p-6 bg-surface-background rounded-xl border border-outline-variant hover:border-primary transition-all group" href="index.html">
+                    <div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-3xl">language</span>
+                    </div>
+                    <div>
+                        <p class="font-label-bold text-label-bold text-on-surface">เว็บไซต์หลัก</p>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant">www.lomkaohospital.go.th</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <section class="mt-gutter">
+            <div class="w-full h-[500px] rounded-2xl overflow-hidden border border-outline-variant shadow-lg relative group">
+                <div class="absolute inset-0 bg-surface-container flex items-center justify-center">
+                    <img class="w-full h-full object-cover grayscale-[20%] opacity-90 transition-transform duration-700 group-hover:scale-105" alt="แผนที่โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzDwE17Wh4dYXig47EjHdrfex65YCYQCpTUpckTSKjHHYY22gtlYc_KNOsMLAGiG_JLJ2JTeMOQjTXyBtUnaOVbfnIxhTZwlcHk0KnReDQWLbqVifYSdMwVM39M_tVnoZJvx1MagM4ICQ-nQNQ4BByRQ5wX5wwRuIC3K6ZkEZNEDXEn2NsOMvGfnzjS99bhL2iLkXAL9jaR1kqlZf9o0GV5wMBUWm_P5__I_MVRT_dwpltIp3cFOIW_J6xDhdHWBdipR-1t2ZUHvo"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-clinical-blue-dark/20 to-transparent pointer-events-none"></div>
+                </div>
+                <div class="absolute top-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-lg border border-outline-variant shadow-xl max-w-xs">
+                    <h3 class="font-label-bold text-primary mb-1">ตำแหน่งที่ตั้งโรงพยาบาล</h3>
+                    <p class="font-label-sm text-on-surface-variant mb-4">คลิกเพื่อดูเส้นทางผ่าน Google Maps</p>
+                    <a class="inline-flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded font-label-bold text-sm" href="https://maps.google.com" target="_blank">
+                        <span class="material-symbols-outlined text-sm">directions</span>
+                        นำทาง (Navigation)
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-surface-container dark:bg-inverse-surface mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-4 md:px-margin-desktop py-12 max-w-container-max mx-auto">
+            <div class="col-span-1 flex flex-col justify-between">
+                <div>
+                    <p class="font-label-bold text-label-bold text-tertiary dark:text-tertiary-fixed mb-4">โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</p>
+                    <p class="font-label-sm text-on-surface-variant dark:text-outline-variant">โรงพยาบาลที่ได้รับพระราชทานนาม สรรค์สร้างเพื่อสุขภาพที่ดีของชุมชน</p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="font-label-bold text-label-bold text-on-surface dark:text-inverse-on-surface mb-1">เมนูหลัก</p>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="about-history.html">เกี่ยวกับเรา</a>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="services.html">บริการของเรา</a>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="news.html">ข้อมูลข่าวสาร</a>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="procurement.html">ประกาศประชาสัมพันธ์</a>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="contact.html">ติดต่อเรา</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="font-label-bold text-label-bold text-on-surface dark:text-inverse-on-surface mb-1">ลิงก์ภายนอก</p>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="https://www.moph.go.th" target="_blank">กระทรวงสาธารณสุข</a>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#" target="_blank">สปสช.</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="font-label-bold text-label-bold text-on-surface dark:text-inverse-on-surface mb-1">อื่น ๆ</p>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
+                <a class="text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="sitemap.html">แผนผังเว็บไซต์</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileDropdownMenu = document.getElementById('mobile-dropdown-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            // Toggle Mobile Main Menu Open/Close
+            mobileMenuBtn.addEventListener('click', function () {
+                const isHidden = mobileDropdownMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileDropdownMenu.classList.remove('hidden');
+                    menuIcon.textContent = 'close';
+                } else {
+                    mobileDropdownMenu.classList.add('hidden');
+                    menuIcon.textContent = 'menu';
+                }
+            });
+
+            // Handle Submenu Accordion clicks on Mobile Devices
+            const mobileSubmenuBtns = document.querySelectorAll('.mobile-submenu-btn');
+            mobileSubmenuBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const submenu = this.nextElementSibling;
+                    const arrow = this.querySelector('.submenu-arrow');
+                    
+                    const isSubmenuHidden = submenu.classList.contains('hidden');
+                    
+                    if (isSubmenuHidden) {
+                        submenu.classList.remove('hidden');
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        submenu.classList.add('hidden');
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

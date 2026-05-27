@@ -1,0 +1,439 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Crown Prince Hospital CMS - Service Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-background": "#FFFFFF",
+                        "inverse-primary": "#82d0f6",
+                        "clinical-blue-dark": "#004D65",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb872",
+                        "background": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#ebeeef",
+                        "status-error": "#D32F2F",
+                        "on-surface-variant": "#3f484d",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffe0c6",
+                        "on-primary-container": "#c7ebff",
+                        "tertiary-container": "#935915",
+                        "secondary-fixed-dim": "#e7c186",
+                        "surface-dim": "#d7dadb",
+                        "on-secondary-fixed-variant": "#5c4213",
+                        "primary": "#005570",
+                        "on-surface": "#181c1d",
+                        "surface": "#f7fafb",
+                        "inverse-surface": "#2d3132",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#006686",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-highest": "#e0e3e4",
+                        "on-background": "#181c1d",
+                        "surface-bright": "#f7fafb",
+                        "surface-variant": "#e0e3e4",
+                        "error": "#ba1a1a",
+                        "royal-gold-light": "#C5A97A",
+                        "secondary": "#765928",
+                        "primary-fixed": "#bfe8ff",
+                        "primary-container": "#006f91",
+                        "outline": "#6f787e",
+                        "on-primary-fixed": "#001f2b",
+                        "secondary-container": "#ffd79a",
+                        "secondary-fixed": "#ffdead",
+                        "on-secondary-fixed": "#281900",
+                        "on-secondary-container": "#795c2b",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2d1600",
+                        "tertiary": "#754200",
+                        "surface-container-low": "#f1f4f5",
+                        "primary-fixed-dim": "#82d0f6",
+                        "outline-variant": "#bfc8ce",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e5e9ea",
+                        "status-success": "#2D8A39",
+                        "tertiary-fixed": "#ffdcbf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["beVietnamPro"],
+                        "label-bold": ["beVietnamPro"],
+                        "headline-lg": ["beVietnamPro"],
+                        "body-md": ["beVietnamPro"],
+                        "headline-md": ["beVietnamPro"],
+                        "body-lg": ["beVietnamPro"],
+                        "headline-xl": ["beVietnamPro"],
+                        "headline-lg-mobile": ["beVietnamPro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #f7fafb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border: 1px solid rgba(0, 77, 101, 0.1); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #bfc8ce; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 bg-clinical-blue-dark dark:bg-surface-container-lowest w-64 border-r border-outline-variant z-50">
+<div class="px-6 mb-8">
+<h1 class="text-headline-md font-headline-md font-bold text-royal-gold-light dark:text-secondary">Crown Prince Hospital</h1>
+<p class="font-body-md text-body-md text-on-primary/60">CMS Administrator</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Dashboard Overview -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary transition-colors duration-200 mx-2 my-1" href="{{DATA:SCREEN:SCREEN_42}}">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard Overview</span>
+</a>
+<!-- News Management -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary transition-colors duration-200 mx-2 my-1" href="{{DATA:SCREEN:SCREEN_42}}">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="font-label-bold text-label-bold">News Management</span>
+</a>
+<!-- Doctor Profiles -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary transition-colors duration-200 mx-2 my-1" href="{{DATA:SCREEN:SCREEN_31}}">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-label-bold text-label-bold">Doctor Profiles</span>
+</a>
+<!-- Service Management (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 transition-transform scale-95 active:scale-90" href="{{DATA:SCREEN:SCREEN_43}}">
+<span class="material-symbols-outlined" data-icon="medical_information">medical_information</span>
+<span class="font-label-bold text-label-bold">Service Management</span>
+</a>
+<!-- Schedule Management -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary transition-colors duration-200 mx-2 my-1" href="{{DATA:SCREEN:SCREEN_49}}">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-bold text-label-bold">Schedule Management</span>
+</a>
+<!-- System Settings -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 dark:text-on-surface-variant hover:text-on-primary dark:hover:text-primary transition-colors duration-200 mx-2 my-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-bold text-label-bold">System Settings</span>
+</a>
+</nav>
+<div class="px-4 pt-4 border-t border-on-primary/10">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-bold text-label-bold">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/80 hover:text-on-primary transition-colors" href="{{DATA:SCREEN:SCREEN_35}}">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-bold text-label-bold">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed left-64 top-0 right-0 h-16 px-8 flex justify-between items-center bg-surface-background dark:bg-surface-container border-b border-secondary/20 dark:border-outline-variant z-40">
+<div class="flex items-center gap-6 flex-1">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary whitespace-nowrap">CMS Portal</h2>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20" placeholder="Search medical services..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-opacity active:opacity-80">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3">
+<span class="font-label-bold text-label-bold text-on-surface hidden md:inline">Admin User</span>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border border-primary/20" data-alt="A professional headshot of a hospital administrator in a modern, clean medical office. The individual is wearing a sophisticated blazer, representing leadership and authority. The lighting is soft and even, typical of a high-end clinical environment. The background shows a hint of a bright, minimalist hospital corridor with clinical blue and warm wood accents, emphasizing the Royal Trust brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA4zAFueL313DQZg1PggFI5-XOFJvgBulUvGhzhHIfQ5bOH4pweqfo7orRfItmws3R6PNAZL8gR-VJ1j1ag7hADN_DEaDJii_nYo7rYgVRpKsukIujC5mSnEaDBbp6p-foRjQgagX1Ee6AUJmuIsfFCUx8C9IFceBfbTtehdtF4387G4ZYtWCFXvHW7WnZ2laf4TFB5tNyloNuJuYU8g0LuN7ESvbU0e24HxA_fmnNlDS9J6spxXM599cjT0xB90bF4cjxN1ePrSE">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<div class="max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Service Management</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Configure and monitor clinical departments and medical offerings.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-label-bold text-label-bold flex items-center gap-2 hover:bg-clinical-blue-dark transition-all transform active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Create New Service
+                </button>
+</div>
+<!-- Dashboard Stats / Bento Style Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12">
+<div class="col-span-1 glass-card p-6 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="medical_information" data-weight="fill">medical_information</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Total Services</p>
+<p class="font-headline-md text-headline-md text-on-surface">32</p>
+</div>
+</div>
+<div class="col-span-1 glass-card p-6 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-status-success/10 flex items-center justify-center text-status-success">
+<span class="material-symbols-outlined" data-icon="visibility" data-weight="fill">visibility</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Active Online</p>
+<p class="font-headline-md text-headline-md text-on-surface">28</p>
+</div>
+</div>
+<div class="col-span-1 glass-card p-6 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-royal-gold-light/10 flex items-center justify-center text-royal-gold-light">
+<span class="material-symbols-outlined" data-icon="star" data-weight="fill">star</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Featured</p>
+<p class="font-headline-md text-headline-md text-on-surface">06</p>
+</div>
+</div>
+<div class="col-span-1 glass-card p-6 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-status-error/10 flex items-center justify-center text-status-error">
+<span class="material-symbols-outlined" data-icon="sync_problem" data-weight="fill">sync_problem</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pending Review</p>
+<p class="font-headline-md text-headline-md text-on-surface">04</p>
+</div>
+</div>
+</div>
+<!-- Categories Tabs -->
+<div class="flex gap-4 mb-6 border-b border-outline-variant overflow-x-auto pb-px custom-scrollbar">
+<button class="px-6 py-3 font-label-bold text-label-bold text-primary border-b-2 border-primary whitespace-nowrap">All Departments</button>
+<button class="px-6 py-3 font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Cardiology</button>
+<button class="px-6 py-3 font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Pediatrics</button>
+<button class="px-6 py-3 font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Neurology</button>
+<button class="px-6 py-3 font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Surgical Care</button>
+<button class="px-6 py-3 font-label-bold text-label-bold text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Emergency</button>
+</div>
+<!-- Services Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-gutter">
+<!-- Service Item 1 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/40 transition-all duration-300 flex flex-col md:flex-row">
+<div class="w-full md:w-48 h-48 md:h-auto overflow-hidden relative">
+<img alt="Advanced Cardiac Care" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A professional medical photograph of a high-tech cardiology diagnostics suite. The room features a clean, sterile environment with sophisticated cardiac monitoring equipment. The lighting is crisp and cool-toned, dominated by clinical blues and whites. A subtle warm glow emanates from indicator lights on the devices, creating a sense of advanced medical technology and reassuring professional care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDncAo-clOkLyr_gUyptCogLoYQIUlfJeDnt0wOGDHHG9mjTDMoFu1EQXpphEe7WSxnBbmNQhHJ6J1YP36OjfR_KlYQ65whwTgv2GjU4JW4uNZAsBDEivrYDel63Ye1bbAezka2amNkCfxVbgVCZ5tI4ArXRjvWzoNQ8ZxuvDwBP0GxjomVfD9ACPnSfAu5JdAJhjPhj6Bq_5WoA_qeLtBJtzOitcddIqVnPmInTuTCf1YTHJMovTS0GzEoRmgUOS1qFRdnZXf87bI">
+<div class="absolute top-3 left-3 bg-primary text-on-primary font-label-bold text-[10px] px-2 py-1 rounded-full uppercase">Featured</div>
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded">Cardiology</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Advanced Cardiac Care</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Visible</span>
+<button class="relative w-10 h-5 bg-status-success rounded-full transition-colors flex items-center justify-end px-0.5">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Comprehensive heart monitoring, non-invasive diagnostics, and personalized treatment plans using state-of-the-art imaging technology.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Edit Service">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="View Analytics">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Delete">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last updated: 2 hrs ago</span>
+</div>
+</div>
+</div>
+<!-- Service Item 2 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/40 transition-all duration-300 flex flex-col md:flex-row">
+<div class="w-full md:w-48 h-48 md:h-auto overflow-hidden relative">
+<img alt="Pediatric Specialty" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A warm and welcoming pediatric consultation room within a modern hospital. The setting features soft, indirect lighting and walls painted in gentle, reassuring tones of light blue and cream. The furniture is rounded and child-friendly, with a focus on creating a non-intimidating, professional environment. The atmosphere is calm and compassionate, reflecting the hospital's royal and clinical brand values." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMVsIzHLjwie9zjqeLI68SecZnVse3PVGbUoZW7GJzNE-TOtDH1NqnXyZM3AW4o6MMm_y9Hq9fnMMt02ZL-I_qLiqfc0mTz8BHV2unNIKGYVFJe2zvAEI6qgFaOTUqCcli8Wk77qe6CawOnAplYiD8QOKhPXZ1W84pFycxVI1EtAHtMdZz0FrbHx3vx3w54QNHgQtb7gpgKBynyJ0FyfVMYUS6nqlwOsqtn1PX_R5i2R6__pjriD7ZOl3B7rPlb2Z5HbWYHCHdYSI">
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded">Pediatrics</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Pediatric Specialty</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Visible</span>
+<button class="relative w-10 h-5 bg-status-success rounded-full transition-colors flex items-center justify-end px-0.5">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Dedicated pediatric care focusing on holistic growth, vaccinations, and specialized treatment for childhood illnesses in a friendly environment.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Edit Service">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="View Analytics">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Delete">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last updated: 1 day ago</span>
+</div>
+</div>
+</div>
+<!-- Service Item 3 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/40 transition-all duration-300 flex flex-col md:flex-row opacity-80 border-dashed border-2">
+<div class="w-full md:w-48 h-48 md:h-auto overflow-hidden relative bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-5xl" data-icon="image">image</span>
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded">Neurology</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Neuro-Imaging Suite</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hidden</span>
+<button class="relative w-10 h-5 bg-outline-variant rounded-full transition-colors flex items-center justify-start px-0.5">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Draft content: High-resolution MRI and CT scanning capabilities for complex neurological diagnostic procedures.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Edit Service">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="View Analytics">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Delete">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant italic">Draft Mode</span>
+</div>
+</div>
+</div>
+<!-- Service Item 4 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/40 transition-all duration-300 flex flex-col md:flex-row">
+<div class="w-full md:w-48 h-48 md:h-auto overflow-hidden relative">
+<img alt="Emergency Trauma Care" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A wide-angle interior view of a modern, efficient emergency trauma center. The scene showcases advanced medical equipment, bright task lighting, and a layout designed for rapid response and clinical precision. The surfaces are pristine and sterile, with a professional color scheme of white, grey, and clinical blue. The mood is one of focused readiness and high-quality emergency healthcare." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_X53jyPh75OYdqtj36SX_mMRAtwhd3XHXOd77qVjiDLg-Xlbi_25dQBAUOYd5PPtvkh1bi6Ph6CYx-TqcNLIPjGwFBwNCC6PglHgksJLsyRhnpyV6RUduEDJK9rlS5LoDy2hLtAd60PyhUXUK7dTwr_Mdc0OaNQo1xI-di_PE1LSlVYqrYPSVRZdBf-jvmwsdP15BnMN_KNra6Z5mFv8Ndh2pNmvMBaxACekQldZ-cOtm8yPuXF0_T3Q-DbWOtjtdcRX24xaBttw">
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded">Emergency</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">Emergency Trauma Unit</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Visible</span>
+<button class="relative w-10 h-5 bg-status-success rounded-full transition-colors flex items-center justify-end px-0.5">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">24/7 rapid response trauma unit equipped with the latest surgical and stabilization equipment for critical emergencies.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Edit Service">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="View Analytics">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Delete">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last updated: 5 mins ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-12 flex justify-center">
+<button class="bg-surface-container-low text-primary px-8 py-3 rounded-full font-label-bold text-label-bold hover:bg-surface-container-high transition-all flex items-center gap-2">
+                    Load More Services
+                    <span class="material-symbols-outlined" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+        // Simple micro-interactions for toggles
+        document.querySelectorAll('.relative.w-10.h-5').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const isOff = this.classList.contains('bg-outline-variant');
+                if (isOff) {
+                    this.classList.remove('bg-outline-variant');
+                    this.classList.add('bg-status-success');
+                    this.classList.add('justify-end');
+                    this.classList.remove('justify-start');
+                    this.previousElementSibling.innerText = 'Visible';
+                } else {
+                    this.classList.add('bg-outline-variant');
+                    this.classList.remove('bg-status-success');
+                    this.classList.remove('justify-end');
+                    this.classList.add('justify-start');
+                    this.previousElementSibling.innerText = 'Hidden';
+                }
+            });
+        });
+
+        // Hover effect for navigation items
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            if (!item.classList.contains('bg-primary-container')) {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateX(4px)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateX(0px)';
+                });
+            }
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-background": "#FFFFFF",
+                        "inverse-primary": "#82d0f6",
+                        "clinical-blue-dark": "#004D65",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb872",
+                        "background": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#ebeeef",
+                        "status-error": "#D32F2F",
+                        "on-surface-variant": "#3f484d",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffe0c6",
+                        "on-primary-container": "#c7ebff",
+                        "tertiary-container": "#935915",
+                        "secondary-fixed-dim": "#e7c186",
+                        "surface-dim": "#d7dadb",
+                        "on-secondary-fixed-variant": "#5c4213",
+                        "primary": "#005570",
+                        "on-surface": "#181c1d",
+                        "surface": "#f7fafb",
+                        "inverse-surface": "#2d3132",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#006686",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-highest": "#e0e3e4",
+                        "on-background": "#181c1d",
+                        "surface-bright": "#f7fafb",
+                        "surface-variant": "#e0e3e4",
+                        "error": "#ba1a1a",
+                        "royal-gold-light": "#C5A97A",
+                        "secondary": "#765928",
+                        "primary-fixed": "#bfe8ff",
+                        "primary-container": "#006f91",
+                        "outline": "#6f787e",
+                        "on-primary-fixed": "#001f2b",
+                        "secondary-container": "#ffd79a",
+                        "secondary-fixed": "#ffdead",
+                        "on-secondary-fixed": "#281900",
+                        "on-secondary-container": "#795c2b",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#2d1600",
+                        "tertiary": "#754200",
+                        "surface-container-low": "#f1f4f5",
+                        "primary-fixed-dim": "#82d0f6",
+                        "outline-variant": "#bfc8ce",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e5e9ea",
+                        "status-success": "#2D8A39",
+                        "tertiary-fixed": "#ffdcbf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "label-bold": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar Shell -->
+<nav class="fixed left-0 top-0 h-full flex flex-col py-6 bg-clinical-blue-dark dark:bg-surface-container-lowest w-64 border-r border-outline-variant z-50">
+<div class="px-6 mb-10">
+<h1 class="text-headline-md font-headline-md font-bold text-royal-gold-light dark:text-secondary">Crown Prince Hospital</h1>
+<p class="text-on-primary/60 text-label-sm font-label-sm">CMS Administrator</p>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-on-primary/80 hover:text-on-primary hover:bg-primary/20 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_42}}">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-on-primary/80 hover:text-on-primary hover:bg-primary/20 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_42}}">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="text-body-md font-body-md">News Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-on-primary/80 hover:text-on-primary hover:bg-primary/20 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_31}}">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="text-body-md font-body-md">Doctor Profiles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-on-primary/80 hover:text-on-primary hover:bg-primary/20 transition-colors duration-200" href="{{DATA:SCREEN:SCREEN_43}}">
+<span class="material-symbols-outlined" data-icon="medical_information">medical_information</span>
+<span class="text-body-md font-body-md">Service Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 scale-95 active:scale-90 transition-transform" href="{{DATA:SCREEN:SCREEN_49}}">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-body-md font-body-md">Schedule Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-on-primary/80 hover:text-on-primary hover:bg-primary/20 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-body-md font-body-md">System Settings</span>
+</a>
+</div>
+<div class="mt-auto border-t border-white/10 pt-4">
+<a class="flex items-center gap-3 px-6 py-3 text-on-primary/70 hover:text-on-primary transition-colors" href="{{DATA:SCREEN:SCREEN_42}}">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-label-bold font-label-bold">Support</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-primary/70 hover:text-on-primary transition-colors" href="{{DATA:SCREEN:SCREEN_35}}">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-label-bold font-label-bold">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-surface-background dark:bg-surface-container border-b border-secondary/20 flex justify-between items-center px-8 z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-label-sm font-label-sm focus:outline-none focus:border-primary transition-all" placeholder="Search doctors or departments..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-low p-2 rounded-full transition-opacity active:opacity-80" data-icon="notifications">notifications</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<div class="text-right">
+<p class="text-label-bold font-label-bold text-primary">Admin User</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold">Main Campus</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border-2 border-royal-gold-light object-cover" data-alt="A professional headshot of a hospital administrator in a clean white medical environment. The lighting is bright and high-key, reflecting a clinical precision and royal trust. The subject is wearing a professional suit with a subtle gold hospital pin, looking confident and approachable. The aesthetic is modern healthcare corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKH9-_4Iz3j6ruNjblZKuZjeDJtaldWNERwDOJB4QgXJpCSx1BVtHDrjFCLiZhWbOtnFY_d2SlMfDvqvDuqnAi_3OEyVOPwu2jw1Uld1r6LWsf1qWl_plPSIqtwFRoPb_VH_SiuYV3uNkTtSjgLDfAG90lj6edexb4VtcHU9qMf35sMJ24AoyZzlhvhfCTDa_aE0qu77oVZbLcLVHu48YsW7jajsAnYfpeajAkVm69Y_u5VIS4jDvHyUMadlgDW0z-9aNzJQrOO_A">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-8 max-w-[1280px] mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary">Schedule Management</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Coordinate and update medical staff availability across all departments.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-2 border border-primary text-primary font-label-bold rounded-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="print">print</span>
+                    Export Schedule
+                </button>
+<button class="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary font-label-bold rounded-lg hover:opacity-90 transition-transform active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                    Edit Schedule
+                </button>
+</div>
+</div>
+<!-- Asymmetric Layout Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Doctor Selection Panel (Sidebar-like within content) -->
+<aside class="col-span-12 lg:col-span-3 space-y-6">
+<div class="bg-surface-background border border-outline-variant rounded-xl p-6">
+<h3 class="text-label-bold font-label-bold text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="groups">groups</span>
+                        Staff Directory
+                    </h3>
+<div class="space-y-4">
+<div class="relative">
+<input class="w-full text-label-sm font-label-sm border border-outline-variant rounded-lg px-3 py-2 focus:ring-1 focus:ring-primary outline-none" placeholder="Filter staff..." type="text">
+</div>
+<div class="space-y-1 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+<!-- Active Doctor -->
+<button class="w-full text-left p-3 rounded-lg bg-primary-container/10 border border-primary/20 flex items-center gap-3 transition-all">
+<img alt="Dr. Sarah Al-Saud" class="w-10 h-10 rounded-full object-cover" data-alt="A close-up portrait of a female doctor in professional clinical attire, smiling warmly. She is set against a blurred background of a high-end, royal-themed hospital interior with gold accents and bright white lighting. The image conveys royal trust and clinical expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9x9EU-mnZdEYMmI34WBO_gso3PthBWEOy0baRhJuT-Pd8FVFVIoL0GacGJQVFrndVtSHxNbjGtEOjdRqvy-8OAqE1oqGzfI9mAlzw5nXPBmi9DBIkIbNgmy8vGav5w_JerBUhzeu47oI5MiVyjrEy27nLRgKahg-m_UwX2AGY_NHwTrkBp6gVSDqrqPJ3Np3w6uK7x0eiD5_wEKlKYu9SRY91BeF2d_loLPZtpAmHswxDNCwyE7gYSS6sH53hiPKWzVs3dv21m0o">
+<div>
+<p class="text-label-bold font-label-bold text-primary">Dr. Sarah Al-Saud</p>
+<p class="text-[12px] text-on-surface-variant">Cardiology</p>
+</div>
+</button>
+<!-- Other Doctors -->
+<button class="w-full text-left p-3 rounded-lg hover:bg-surface-container-low border border-transparent flex items-center gap-3 transition-all">
+<img alt="Dr. James Wilson" class="w-10 h-10 rounded-full object-cover grayscale opacity-70" data-alt="Portrait of a senior male doctor with grey hair and glasses, wearing a clinical coat. The background is a clean, minimal medical environment. The mood is authoritative yet compassionate, captured in professional high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE0yRAIFgPogBXvfWHIJ80ljtNhH6Rc7aEcHsQ5E-VxF0wEji5ZBvMnzs7_tMOlNzpz6CyEb21bHeizx-b5jGaMxbyzsMXRQrhCaULhruIzRJJnR7GlbbEfH42EF9W-2Y3Mb_VWy0Q5mtn5eGTDYDJ87STSpGuMVcilvItieF5cLEatSh7errAjOdlcTBT6lBkGa1EJ_i2Ydhd7_XhOtcqqsGq2uIb3oh-qdMtaQJJmNXC4RPlvi5PzwxuMoWGc-rc46NzBrroCn4">
+<div>
+<p class="text-label-bold font-label-bold text-on-surface">Dr. James Wilson</p>
+<p class="text-[12px] text-on-surface-variant">Neurology</p>
+</div>
+</button>
+<button class="w-full text-left p-3 rounded-lg hover:bg-surface-container-low border border-transparent flex items-center gap-3 transition-all">
+<img alt="Dr. Elena Petrova" class="w-10 h-10 rounded-full object-cover grayscale opacity-70" data-alt="Portrait of a young female doctor in a crisp white lab coat, standing in a bright hospital hallway with natural light. The aesthetic is clean, precise, and professional, utilizing soft shadows and clear focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtDJ9jfB3Z50Lc_dRbeub4SGPIIyual3V2fMV5lFFZP8IhPf14oMZBpgdA-gGbwbhKHcE0QWfBQ1MdqpvGmDe9N5WzLC7USTUai2gB-_gLiFaUzYRP0QC2WJPh4DYPpHZLqKNw1D2qYhxqHyI2SQ7CKoV5PFzt1vSnZgsxuF7xWSCdfs28_UdMmSJiyPtfzOTxY-WFrmW09q-ZFZUiAsgZm3fVsntz5wPXSplA8UnCDandOhLFujeg1YRU_GZeLMuLZKazZkBSXmo">
+<div>
+<p class="text-label-bold font-label-bold text-on-surface">Dr. Elena Petrova</p>
+<p class="text-[12px] text-on-surface-variant">Pediatrics</p>
+</div>
+</button>
+<button class="w-full text-left p-3 rounded-lg hover:bg-surface-container-low border border-transparent flex items-center gap-3 transition-all">
+<img alt="Dr. Aaron Chen" class="w-10 h-10 rounded-full object-cover grayscale opacity-70" data-alt="Professional medical profile of a male physician in a clinical setting. High resolution, soft focus on the clean hospital interior background, balanced professional lighting with cool blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmAiVPKzY5uKnlNgP4cYEmz5Cj9C52RUJQZnnEmVSBdy7XHiN0-w2WNJVjcXYX8RzB36l6sg_Tq1kaLiZ0ZptFryKjAfg8Y_Myyn0Up2gSKHsbmUoO0R9_PSJcDuYlIlmp0SXhQ6iz_vAFtxICsSwRJd4FruOfmeRRjBWBN2Bj2wkLJ7HPI8YaksqU6zD6YfFpeCQYoB3HXkaRnZQvAHtMsRrz80ARGMEVD8PN7r-afcxW1BanUgwfNRHbVUdq63TNYKpxT5CsJmA">
+<div>
+<p class="text-label-bold font-label-bold text-on-surface">Dr. Aaron Chen</p>
+<p class="text-[12px] text-on-surface-variant">Oncology</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Stats/Mini Card -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-6 shadow-md border border-primary/20">
+<span class="material-symbols-outlined text-royal-gold-light mb-2 block" data-icon="clinical_notes">clinical_notes</span>
+<h4 class="text-label-bold font-label-bold mb-1">Weekly Capacity</h4>
+<div class="flex items-end gap-2">
+<span class="text-headline-md font-headline-md">84%</span>
+<span class="text-label-sm font-label-sm pb-1 opacity-80">Full for next week</span>
+</div>
+<div class="w-full bg-white/20 h-2 rounded-full mt-4 overflow-hidden">
+<div class="bg-royal-gold-light h-full w-[84%]"></div>
+</div>
+</div>
+</aside>
+<!-- Calendar/Schedule Content Area -->
+<section class="col-span-12 lg:col-span-9 space-y-6">
+<!-- Schedule Controls -->
+<div class="bg-surface-background border border-outline-variant rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<h3 class="text-headline-md font-headline-md text-primary">October 21 - 27, 2024</h3>
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="ml-4 px-4 py-1 bg-surface-container text-on-surface-variant font-label-bold rounded text-sm hover:bg-surface-container-high transition-colors">Today</button>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-lg">
+<button class="px-4 py-1.5 text-label-bold font-label-bold rounded-md transition-all">Day</button>
+<button class="px-4 py-1.5 text-label-bold font-label-bold bg-white shadow-sm rounded-md text-primary transition-all">Week</button>
+<button class="px-4 py-1.5 text-label-bold font-label-bold rounded-md transition-all">Month</button>
+</div>
+</div>
+<!-- Bento Grid Calendar View -->
+<div class="grid grid-cols-7 gap-1 bg-outline-variant/30 border border-outline-variant rounded-xl overflow-hidden">
+<!-- Day Headers -->
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant">
+<p class="text-label-sm font-label-sm text-on-surface-variant">MON</p>
+<p class="text-headline-md font-headline-md">21</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant">
+<p class="text-label-sm font-label-sm text-on-surface-variant">TUE</p>
+<p class="text-headline-md font-headline-md">22</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant">
+<p class="text-label-sm font-label-sm text-on-surface-variant">WED</p>
+<p class="text-headline-md font-headline-md">23</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant bg-primary-container/5">
+<p class="text-label-sm font-label-sm text-primary">THU</p>
+<p class="text-headline-md font-headline-md text-primary">24</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant">
+<p class="text-label-sm font-label-sm text-on-surface-variant">FRI</p>
+<p class="text-headline-md font-headline-md">25</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant opacity-60">
+<p class="text-label-sm font-label-sm text-on-surface-variant">SAT</p>
+<p class="text-headline-md font-headline-md">26</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center border-b border-outline-variant opacity-60">
+<p class="text-label-sm font-label-sm text-on-surface-variant">SUN</p>
+<p class="text-headline-md font-headline-md">27</p>
+</div>
+<!-- Day Content -->
+<div class="bg-surface-background h-80 p-2 space-y-2 relative group hover:bg-surface-container-lowest transition-colors">
+<div class="bg-clinical-blue-dark text-white p-2 rounded text-[11px] font-label-bold cursor-pointer hover:brightness-110 shadow-sm">
+<p class="">08:00 - 12:00</p>
+<p class="opacity-80">Shift: Morning</p>
+</div>
+<div class="bg-royal-gold-light/20 text-secondary p-2 rounded text-[11px] font-label-bold border border-royal-gold-light/30">
+<p class="">14:00 - 16:00</p>
+<p class="">Consultations</p>
+</div>
+</div>
+<div class="bg-surface-background h-80 p-2 space-y-2 relative group hover:bg-surface-container-lowest transition-colors">
+<div class="bg-clinical-blue-dark text-white p-2 rounded text-[11px] font-label-bold">
+<p class="">08:00 - 12:00</p>
+<p class="opacity-80">Shift: Morning</p>
+</div>
+</div>
+<div class="bg-surface-background h-80 p-2 space-y-2 relative group hover:bg-surface-container-lowest transition-colors">
+<div class="bg-status-error/10 text-status-error p-2 rounded text-[11px] font-label-bold border border-status-error/20">
+<p class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="block">block</span> On Leave</p>
+<p class="">Annual Vacation</p>
+</div>
+</div>
+<div class="bg-primary-container/5 h-80 p-2 space-y-2 border-x border-primary/10 relative">
+<div class="bg-clinical-blue-dark text-white p-2 rounded text-[11px] font-label-bold">
+<p class="">08:00 - 12:00</p>
+<p class="opacity-80">Shift: Morning</p>
+</div>
+<div class="absolute inset-x-0 top-1/2 h-[2px] bg-status-error z-10 shadow-[0_0_8px_rgba(211,47,47,0.5)]"></div>
+</div>
+<div class="bg-surface-background h-80 p-2 space-y-2 relative group hover:bg-surface-container-lowest transition-colors">
+<div class="bg-clinical-blue-dark text-white p-2 rounded text-[11px] font-label-bold">
+<p class="">08:00 - 16:00</p>
+<p class="opacity-80">Shift: Full Day</p>
+</div>
+</div>
+<div class="bg-surface-container-low h-80 p-2 opacity-40"></div>
+<div class="bg-surface-container-low h-80 p-2 opacity-40"></div>
+</div>
+<!-- Update Working Hours Modal (Simulated in-place) -->
+<div class="bg-surface-background border border-outline-variant rounded-xl overflow-hidden shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+<div class="bg-clinical-blue-dark text-white px-6 py-4 flex justify-between items-center">
+<div>
+<h4 class="text-headline-md font-headline-md">Quick Edit: Dr. Sarah Al-Saud</h4>
+<p class="text-label-sm font-label-sm opacity-80">Selected Slot: Monday, Oct 21, 14:00 - 16:00</p>
+</div>
+<button class="material-symbols-outlined hover:bg-white/10 p-1 rounded-full" data-icon="close">close</button>
+</div>
+<div class="p-8 grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<div>
+<label class="block text-label-bold font-label-bold text-on-surface-variant mb-1">Availability Type</label>
+<select class="w-full p-3 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-primary">
+<option>Regular Shift</option>
+<option>On-Call</option>
+<option>Emergency Standby</option>
+<option>Administrative</option>
+<option>Leave/Absent</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-bold font-label-bold text-on-surface-variant mb-1">Start Time</label>
+<input class="w-full p-3 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-primary" type="time" value="14:00">
+</div>
+<div>
+<label class="block text-label-bold font-label-bold text-on-surface-variant mb-1">End Time</label>
+<input class="w-full p-3 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md focus:outline-primary" type="time" value="16:00">
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-label-bold font-label-bold text-on-surface-variant mb-1">Department/Location</label>
+<div class="p-3 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface-variant">
+                                    Cardiology - West Wing, Floor 4
+                                </div>
+</div>
+<div>
+<label class="block text-label-bold font-label-bold text-on-surface-variant mb-1">Admin Notes</label>
+<textarea class="w-full p-3 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md h-24 focus:outline-primary resize-none" placeholder="Add any specific instructions for this shift..."></textarea>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low px-8 py-4 flex justify-end gap-3">
+<button class="px-6 py-2 border border-outline text-on-surface-variant font-label-bold rounded-lg hover:bg-surface-container-highest transition-colors">Cancel</button>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-bold rounded-lg hover:opacity-90 shadow-md">Update Working Hours</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Floating Action Button - Only for Main Dashboard Screens -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-royal-gold-light text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform group">
+<span class="material-symbols-outlined text-[28px]" data-icon="event_available">event_available</span>
+<span class="absolute right-full mr-4 px-3 py-1.5 bg-clinical-blue-dark text-white text-xs font-label-bold rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                Quick Schedule Wizard
+            </span>
+</button>
+</main>
+<script>
+        // Micro-interaction for calendar slots
+        document.querySelectorAll('.bg-clinical-blue-dark').forEach(slot => {
+            slot.addEventListener('click', () => {
+                slot.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    slot.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

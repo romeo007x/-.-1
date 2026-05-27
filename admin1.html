@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="th"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ระบบจัดการเนื้อหา - โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Be+Vietnam+Pro', sans-serif;
+            background-color: #f7fafb;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .rich-text-editor {
+            min-height: 200px;
+            border: 1px solid #bfc8ce;
+            border-radius: 4px;
+            padding: 16px;
+        }
+        
+        .modal-overlay {
+            background-color: rgba(0, 31, 43, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Custom scrollbar for clinical look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f4f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc8ce;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #005570;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#935915",
+                      "surface-container": "#ebeeef",
+                      "outline-variant": "#bfc8ce",
+                      "tertiary-fixed-dim": "#ffb872",
+                      "error-container": "#ffdad6",
+                      "surface-background": "#FFFFFF",
+                      "on-primary-container": "#c7ebff",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e0e3e4",
+                      "primary": "#005570",
+                      "on-secondary-fixed-variant": "#5c4213",
+                      "on-primary": "#ffffff",
+                      "status-error": "#D32F2F",
+                      "outline": "#6f787e",
+                      "secondary-fixed": "#ffdead",
+                      "status-success": "#2D8A39",
+                      "on-secondary-container": "#795c2b",
+                      "surface-container-low": "#f1f4f5",
+                      "on-surface": "#181c1d",
+                      "tertiary-fixed": "#ffdcbf",
+                      "secondary-container": "#ffd79a",
+                      "clinical-blue-dark": "#004D65",
+                      "tertiary": "#754200",
+                      "royal-gold-light": "#C5A97A",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#82d0f6",
+                      "on-secondary-fixed": "#281900",
+                      "on-primary-fixed": "#001f2b",
+                      "surface": "#f7fafb",
+                      "inverse-surface": "#2d3132",
+                      "on-tertiary-fixed-variant": "#6a3b00",
+                      "surface-dim": "#d7dadb",
+                      "on-tertiary-container": "#ffe0c6",
+                      "secondary-fixed-dim": "#e7c186",
+                      "surface-tint": "#006686",
+                      "on-primary-fixed-variant": "#004d66",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#2d1600",
+                      "secondary": "#765928",
+                      "primary-fixed": "#bfe8ff",
+                      "on-background": "#181c1d",
+                      "surface-variant": "#e0e3e4",
+                      "surface-container-high": "#e5e9ea",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#f7fafb",
+                      "inverse-on-surface": "#eef1f2",
+                      "primary-fixed-dim": "#82d0f6",
+                      "on-surface-variant": "#3f484d",
+                      "primary-container": "#006f91",
+                      "background": "#f7fafb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-bold": ["Be Vietnam Pro"],
+                      "headline-md": ["Be Vietnam Pro"],
+                      "body-lg": ["Be Vietnam Pro"],
+                      "body-md": ["Be Vietnam Pro"],
+                      "headline-lg-mobile": ["Be Vietnam Pro"],
+                      "headline-lg": ["Be Vietnam Pro"],
+                      "label-sm": ["Be Vietnam Pro"],
+                      "headline-xl": ["Be Vietnam Pro"]
+              },
+              "fontSize": {
+                      "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "headline-xl": ["48px", {"lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-surface">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-clinical-blue-dark text-white flex flex-col fixed h-full z-30">
+<div class="p-8 border-b border-white/10">
+<h1 class="font-headline-md text-headline-md font-bold leading-tight">
+<span class="text-royal-gold-light">SCP</span> Admin
+                </h1>
+<p class="text-xs opacity-70 mt-1 uppercase tracking-widest font-label-bold">โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</p>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold">แดชบอร์ด</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-royal-gold-light text-on-secondary-fixed shadow-lg shadow-black/20 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+<span class="font-label-bold">จัดการข่าวสาร</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-bold">จัดการข้อมูลแพทย์</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined">vaccines</span>
+<span class="font-label-bold">จัดการบริการ</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-bold">ข้อมูลติดต่อ</span>
+</a>
+<div class="pt-4 mt-4 border-t border-white/10">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-all group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-bold">ตั้งค่า</span>
+</a>
+</div>
+</nav>
+<div class="p-6 bg-black/10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-clinical-blue-dark">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="text-sm font-bold">Admin User</p>
+<p class="text-xs opacity-60">ผู้ดูแลระบบ</p>
+</div>
+</div>
+<button class="w-full py-2 text-sm font-label-bold border border-white/20 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">logout</span> ออกจากระบบ
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-72 p-10 max-w-container-max">
+<!-- Header section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-clinical-blue-dark">จัดการข่าวประชาสัมพันธ์</h2>
+<p class="font-body-md text-on-surface-variant">จัดการและอัปเดตข้อมูลข่าวสารล่าสุดของโรงพยาบาล</p>
+</div>
+<button class="bg-primary text-white px-6 py-3 rounded-lg font-label-bold flex items-center gap-2 hover:bg-clinical-blue-dark active:scale-95 transition-all shadow-md" onclick="toggleModal('editModal')">
+<span class="material-symbols-outlined">add</span> เพิ่มข่าวใหม่
+                </button>
+</div>
+<!-- Quick Statistics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">calendar_today</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface-variant">จำนวนนัดหมายวันนี้</p>
+<h3 class="text-3xl font-bold text-clinical-blue-dark">42</h3>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-size: 32px;">stethoscope</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface-variant">จำนวนแพทย์ทั้งหมด</p>
+<h3 class="text-3xl font-bold text-clinical-blue-dark">128</h3>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm flex items-center gap-6 border-l-4 border-l-royal-gold-light">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-size: 32px;">article</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface-variant">ข่าวสารที่เผยแพร่</p>
+<h3 class="text-3xl font-bold text-clinical-blue-dark">15</h3>
+</div>
+</div>
+</div>
+<!-- News Table -->
+<div class="bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="px-8 py-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h4 class="font-label-bold text-on-surface">รายการข่าวสารทั้งหมด</h4>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded-full text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none min-w-[280px]" placeholder="ค้นหาข่าวสาร..." type="text">
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/50">
+<th class="px-8 py-4 font-label-bold text-clinical-blue-dark border-b border-outline-variant">หัวข้อข่าว</th>
+<th class="px-8 py-4 font-label-bold text-clinical-blue-dark border-b border-outline-variant">วันที่เผยแพร่</th>
+<th class="px-8 py-4 font-label-bold text-clinical-blue-dark border-b border-outline-variant">หมวดหมู่</th>
+<th class="px-8 py-4 font-label-bold text-clinical-blue-dark border-b border-outline-variant text-right">จัดการ</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- News Item 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container overflow-hidden flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover" data-alt="A high-quality clinical photograph of modern hospital equipment inside a bright, sterile operating room. The image features soft blue and white tones consistent with a medical environment. The composition is clean and professional, suggesting a high standard of patient care and technological advancement in a contemporary healthcare facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMvNjBd7r84qDbIrbNXL0t5B06EGoM6TWQN1HFmStGKDfp0QMA3V379-sE3JjbjabWYThebao1EHHNlAdUuYpT9tbkybCVM-kVOihdYcayauaugh8L6yoyga1cjxdejd-hZA5ZKp2MDbto-PrNbUoLwKePD35bKKLuETd9ncmV_5Jp0nJzldOJEV78szhLNg6ZApY90FAhayxfE8n6_NHNnE-uO6KBx5oWO7f_F7_bV_tZrWXpE5vRTKa3P8ealnM1FU5b7T9UH6U">
+</div>
+<div>
+<p class="font-label-bold text-on-surface line-clamp-1">เปิดหน่วยบริการตรวจสุขภาพเคลื่อนที่เฉลิมพระเกียรติ</p>
+<p class="text-xs text-on-surface-variant">รหัสข่าว: NW-2024-001</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant font-medium">12 พฤษภาคม 2567</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-xs font-label-bold">ข่าวประชาสัมพันธ์</span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-highest rounded-lg text-primary transition-colors" title="แก้ไข">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-surface-container-highest rounded-lg text-outline transition-colors" title="ซ่อน">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-lg text-error transition-colors" title="ลบ">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- News Item 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container overflow-hidden flex-shrink-0">
+<img alt="News" class="w-full h-full object-cover" data-alt="A compassionate medical professional interacting with an elderly patient in a sunlit hospital hallway. The atmosphere is warm and reassuring, emphasizing the hospital's patient-centered care and commitment to community health. The lighting is natural and bright, reinforcing a sense of trust and compassionate medical excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDPshlPUuZnsDsC7N4iauncch9gReiUyfOS7MZYzONhwReQpucHGdagXDfPpYqhAcXj0Q9Zl_SzQtpuNjvVUjz4NOUDRAOSFchbMP4Nvzyfr4jVw2dlRkJnqbapLbR-4TcgQaRBpsaS7AyjTkSLMCf6LzX8yrP3cLvBOpHVfbjUdThUDiN7c-40CpCSUQIkg7uHUvcLNlfdQEmrgxgne1eaLfM4Ejd8a6AKmXZCiRLzcP8v18xez_kQXwj7sdo31vckAP_0UjhfA4">
+</div>
+<div>
+<p class="font-label-bold text-on-surface line-clamp-1">ประกาศรับสมัครพยาบาลวิชาชีพ ประจำการปี 2567</p>
+<p class="text-xs text-on-surface-variant">รหัสข่าว: NW-2024-002</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant font-medium">10 พฤษภาคม 2567</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-label-bold">รับสมัครงาน</span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-surface-container-highest rounded-lg text-primary transition-colors" title="แก้ไข">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 hover:bg-surface-container-highest rounded-lg text-outline transition-colors" title="ซ่อน">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-lg text-error transition-colors" title="ลบ">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-8 py-6 bg-surface-container-low flex justify-between items-center text-sm">
+<p class="text-on-surface-variant">แสดง 1 ถึง 2 จากทั้งหมด 15 รายการ</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded border border-outline-variant hover:bg-white transition-colors disabled:opacity-50" disabled="">ก่อนหน้า</button>
+<button class="px-3 py-1 rounded bg-primary text-white font-label-bold">1</button>
+<button class="px-3 py-1 rounded border border-outline-variant hover:bg-white transition-colors">2</button>
+<button class="px-3 py-1 rounded border border-outline-variant hover:bg-white transition-colors">3</button>
+<button class="px-3 py-1 rounded border border-outline-variant hover:bg-white transition-colors">ถัดไป</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Edit News Modal (Hidden by default) -->
+<div class="fixed inset-0 z-50 hidden" id="editModal">
+<div class="modal-overlay absolute inset-0"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[921px] flex flex-col animate-in fade-in zoom-in duration-300">
+<!-- Modal Header -->
+<div class="px-8 py-6 border-b border-outline-variant bg-surface flex justify-between items-center">
+<div>
+<h3 class="font-headline-md text-headline-md text-clinical-blue-dark">แก้ไขข่าวประชาสัมพันธ์</h3>
+<p class="text-sm text-on-surface-variant">ปรับปรุงข้อมูลและเนื้อหาของข่าวสารที่เลือก</p>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors" onclick="toggleModal('editModal')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Title Field -->
+<div class="space-y-2">
+<label class="block font-label-bold text-on-surface">หัวข้อข่าว <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" type="text" value="เปิดหน่วยบริการตรวจสุขภาพเคลื่อนที่เฉลิมพระเกียรติ">
+</div>
+<div class="grid grid-cols-2 gap-8">
+<!-- Category Dropdown -->
+<div class="space-y-2">
+<label class="block font-label-bold text-on-surface">หมวดหมู่</label>
+<select class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white">
+<option selected="">ข่าวประชาสัมพันธ์</option>
+<option>กิจกรรมโรงพยาบาล</option>
+<option>รับสมัครงาน</option>
+<option>ข่าวสารสุขภาพ</option>
+</select>
+</div>
+<!-- Date Picker -->
+<div class="space-y-2">
+<label class="block font-label-bold text-on-surface">วันที่เผยแพร่</label>
+<div class="relative">
+<input class="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none" type="date" value="2024-05-12">
+</div>
+</div>
+</div>
+<!-- Rich Text Editor Placeholder -->
+<div class="space-y-2">
+<label class="block font-label-bold text-on-surface">เนื้อหาข่าว</label>
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<div class="bg-surface-container-low px-4 py-2 border-b border-outline-variant flex gap-4">
+<button class="p-1 hover:bg-white rounded"><span class="material-symbols-outlined text-sm">format_bold</span></button>
+<button class="p-1 hover:bg-white rounded"><span class="material-symbols-outlined text-sm">format_italic</span></button>
+<button class="p-1 hover:bg-white rounded"><span class="material-symbols-outlined text-sm">format_list_bulleted</span></button>
+<button class="p-1 hover:bg-white rounded"><span class="material-symbols-outlined text-sm">link</span></button>
+<button class="p-1 hover:bg-white rounded"><span class="material-symbols-outlined text-sm">image</span></button>
+</div>
+<div class="rich-text-editor font-body-md">
+                            โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า มีความภาคภูมิใจในการนำเสนอบริการตรวจสุขภาพเคลื่อนที่เพื่อเข้าถึงประชาชนในพื้นที่ห่างไกล โดยหน่วยบริการเคลื่อนที่นี้จะออกปฏิบัติงานตั้งแต่วันที่ 15 พฤษภาคม เป็นต้นไป...
+                        </div>
+</div>
+</div>
+<!-- Image Uploader -->
+<div class="space-y-2">
+<label class="block font-label-bold text-on-surface">ภาพประกอบข่าว (Thumbnail)</label>
+<div class="flex items-start gap-6">
+<div class="w-48 h-32 rounded-lg bg-surface-container border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-on-surface-variant overflow-hidden relative group">
+<img alt="Current" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlLjxZonIaHKBXOb5YjtsYmAARXkB1_fgY__olDPYpge4wyQ2cMXYsuuOVJTRfsDVo0krZXhoJmqSLbsk1-v-MC9bcZ-zFkvYOYuJEm4Nzx6hHU2cLYhImCNSjC1nUL0sjUKnv9ND43LPujeFufcX-32G5XB89tPzr24IaZa7UloayAzaWNo-dydiG6925zRsiJ7uDN79veW5nZZ1lK--eIhL4RJgUX5uiAkB3ypbDDt0GIlJHv_4UaIzQANkJbl0ezdxNPk64gZo">
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">upload</span>
+</div>
+</div>
+<div class="flex-1 space-y-3">
+<p class="text-sm text-on-surface-variant">ลากและวางรูปภาพที่นี่ หรือคลิกเพื่อเลือกไฟล์</p>
+<p class="text-xs text-outline">รองรับไฟล์ JPG, PNG (ขนาดแนะนำ 1200 x 800 px, ไม่เกิน 2MB)</p>
+<button class="text-primary font-label-bold text-sm underline hover:text-clinical-blue-dark">เปลี่ยนรูปภาพ</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-8 py-6 border-t border-outline-variant bg-surface flex justify-end gap-4">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant font-label-bold hover:bg-surface-container transition-colors" onclick="toggleModal('editModal')">ยกเลิก</button>
+<button class="px-8 py-2.5 rounded-lg bg-primary text-white font-label-bold hover:bg-clinical-blue-dark active:scale-95 transition-all shadow-lg shadow-primary/20">บันทึกการเปลี่ยนแปลง</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="ml-72 p-10 bg-surface-container-highest border-t border-royal-gold-light">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-center md:text-left">
+<p class="font-label-bold text-clinical-blue-dark">โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</p>
+<p class="text-xs text-on-surface-variant mt-1">© 2024 สงวนลิขสิทธิ์ ตามพระราชบัญญัติลิขสิทธิ์</p>
+</div>
+<div class="flex gap-8 text-sm font-label-bold text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="hover:text-primary transition-colors" href="#">ช่วยเหลือ</a>
+<a class="hover:text-primary transition-colors" href="#">ติดต่อไอที</a>
+</div>
+</div>
+</footer>
+<script>
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('editModal');
+                if (!modal.classList.contains('hidden')) toggleModal('editModal');
+            }
+        });
+
+        // Interactive states for buttons
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => el.classList.add('scale-95'));
+            el.addEventListener('mouseup', () => el.classList.remove('scale-95'));
+            el.addEventListener('mouseleave', () => el.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

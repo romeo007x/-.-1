@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</title>
+  <style>
+    /* ตั้งค่าเริ่มต้นพื้นฐาน */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* แถบเมนูด้านบน (Navbar) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+
+    /* โครงสร้างฝั่งชื่อโรงพยาบาล */
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      /* ป้องกันไม่ให้กล่องตัวอักษรโดนบีบจนหดตัว */
+      flex-shrink: 0; 
+    }
+
+    /* เส้นสีน้ำตาลแนวตั้งด้านซ้ายข้อความ */
+    .brand-accent {
+      width: 6px;
+      height: 36px;
+      background-color: #bfa16f;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* โฟกัสจุดนี้: บังคับข้อความให้เรียงยาวเป็นบรรทัดเดียว */
+    .hospital-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #004d61;
+      /* บังคับข้อความยาวเป็นเส้นตรง ห้ามขึ้นบรรทัดใหม่ในทุกกรณี */
+      white-space: nowrap; 
+    }
+
+    /* ส่วนของโครงสร้างเมนูขวา (สำหรับประกอบให้สมบูรณ์เหมือนภาพตัวอย่าง) */
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-item a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* จัดการ responsive ย่อขนาดฟอนต์บนหน้าจอเล็กเพื่อความสวยงาม */
+    @media (max-width: 768px) {
+      .hospital-title {
+        /* ลดขนาดตัวอักษรบนมือถือลงนิดหน่อย เพื่อไม่ให้ยาวล้นขอบจอเกินไป */
+        font-size: 16px; 
+      }
+      .brand-accent {
+        height: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="brand-container">
+      <div class="brand-accent"></div>
+      <h1 class="hospital-title">โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</h1>
+    </div>
+
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="#" style="border-bottom: 2px solid #004d61; padding-bottom: 4px;">หน้าแรก</a></li>
+      <li class="nav-item"><a href="#">เกี่ยวกับเรา</a></li>
+      <li class="nav-item"><a href="#">บริการของเรา</a></li>
+      <li class="nav-item"><a href="#">ข้อมูลข่าวสาร</a></li>
+      <li class="nav-item"><a href="#">ติดต่อเรา</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>

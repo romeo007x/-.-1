@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ประวัติโรงพยาบาล| โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า | Lomkao Crown Prince Hospital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f4f8f9;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        /* เสริมมิติการ์ดกระจกให้ดูหรูหรานุ่มนวล */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "royal-gold-light": "#C5A97A",
+                        "surface-bright": "#f7fafb",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-surface": "#181c1d",
+                        "status-success": "#2D8A39",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ffd79a",
+                        "on-tertiary-container": "#ffe0c6",
+                        "surface-variant": "#e0e3e4",
+                        "on-secondary-container": "#795c2b",
+                        "on-primary-fixed": "#001f2b",
+                        "surface-container": "#ebeeef",
+                        "tertiary": "#754200",
+                        "on-secondary-fixed": "#281900",
+                        "error": "#d32f2f",
+                        "tertiary-fixed": "#ffdcbf",
+                        "primary": "#005570",
+                        "on-background": "#181c1d",
+                        "primary-fixed": "#bfe8ff",
+                        "primary-fixed-dim": "#82d0f6",
+                        "surface-container-highest": "#e0e3e4",
+                        "secondary-fixed": "#ffdead",
+                        "surface-background": "#FFFFFF",
+                        "surface": "#f7fafb",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#e2e8f0",
+                        "outline": "#6f787e",
+                        "secondary-fixed-dim": "#e7c186",
+                        "inverse-surface": "#2d3132",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#006686",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb872",
+                        "inverse-primary": "#82d0f6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#c7ebff",
+                        "surface-dim": "#d7dadb",
+                        "surface-container-high": "#e5e9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4a5568",
+                        "on-tertiary-fixed": "#2d1600",
+                        "background": "#f7fafb",
+                        "status-error": "#D32F2F",
+                        "secondary": "#765928",
+                        "inverse-on-surface": "#eef1f2",
+                        "tertiary-container": "#935915",
+                        "on-secondary-fixed-variant": "#5c4213",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f8fafc",
+                        "clinical-blue-dark": "#004D65",
+                        "primary-container": "#006f91"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-xl": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "label-sm": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+                        "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-xl": ["42px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-fixed selection:text-primary">
+    <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-gray-200 shadow-sm transition-all duration-300">
+    <div class="flex justify-between items-center max-w-[1700px] mx-auto px-4 md:px-6 py-3 gap-4">
+        
+        <a href="index.html" class="flex items-center gap-3 min-w-0 shrink-0 group">
+            <img src="https://img2.pic.in.th/logo_lomkao2-no-BG.png" 
+                 alt="Logo" 
+                 class="w-12 h-12 object-contain transition-transform group-hover:scale-105">
+            
+            <div class="flex flex-col">
+                <h1 class="font-bold text-slate-800 text-sm sm:text-lg lg:text-xl tracking-tight leading-tight">
+                    โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า
+                </h1>
+                <span class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Lomkao Hospital</span>
+            </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 shrink-0">
+            <a class="flex flex-col items-center gap-1 text-primary transition-colors" href="index.html">
+                <span class="material-symbols-outlined text-[24px]">home</span>
+                <span class="font-bold text-[13px]">หน้าแรก</span>
+            </a>
+
+            <div class="relative group/menu">
+    <button class="flex flex-col items-center gap-1 text-primary border-b-2 border-primary transition-colors pb-1">
+        <span class="material-symbols-outlined text-[24px]">groups</span>
+        <span class="font-bold text-[13px] flex items-center gap-0.5">
+            เกี่ยวกับเรา 
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+        </span>
+    </button>
+    
+    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-56 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300">
+        <div class="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-xl border border-gray-100">
+            <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="about-history.html">ประวัติความเป็นมา</a>
+            <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="about-vision.html">วิสัยทัศน์ พันธกิจ</a>
+            <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="about-executives.html">คณะผู้บริหาร</a>
+        </div>
+    </div>
+</div>
+
+            <div class="relative group/menu">
+                <button class="flex flex-col items-center gap-1 text-slate-600 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">medical_services</span>
+                    <span class="font-bold text-[13px] flex items-center gap-0.5">บริการของเรา <span class="material-symbols-outlined text-[14px]">expand_more</span></span>
+                </button>
+                <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-56 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300">
+                    <div class="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-xl border border-gray-100">
+                        <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="services.html">บริการทางการแพทย์</a>
+                        <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="specialists.html">ศูนย์เชี่ยวชาญเฉพาะทาง</a>
+                        <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="doctors.html">ค้นหาแพทย์</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group/menu">
+                <button class="flex flex-col items-center gap-1 text-slate-600 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-[24px]">description</span>
+                    <span class="font-bold text-[13px] flex items-center gap-0.5">ข่าวสาร <span class="material-symbols-outlined text-[14px]">expand_more</span></span>
+                </button>
+                <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-56 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-300">
+                    <div class="bg-white/95 backdrop-blur-md p-2 rounded-2xl shadow-xl border border-gray-100">
+                        <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="news.html">ข่าวประชาสัมพันธ์</a>
+                        <a class="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-xl" href="articles.html">บทความสุขภาพ</a>
+                    </div>
+                </div>
+            </div>
+
+            <a class="flex flex-col items-center gap-1 text-slate-600 hover:text-primary transition-colors" href="contact.html">
+                <span class="material-symbols-outlined text-[24px]">call</span>
+                <span class="font-bold text-[13px]">ติดต่อเรา</span>
+            </a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+            <button class="hidden lg:flex px-5 py-2.5 bg-white border border-primary text-primary font-bold text-sm rounded-full hover:bg-primary hover:text-white transition-all">
+                บริจาค
+            </button>
+            <a href="tel:1669" class="px-5 py-2.5 bg-red-600 text-white font-bold text-sm rounded-full shadow-lg hover:scale-105 transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">emergency</span>
+                1669
+            </a>
+        </div>
+    </div>
+</header>
+            </a>
+            <!-- ปุ่มเมนูสำหรับ Mobile -->
+            <button class="lg:hidden p-2 text-on-surface-variant">
+                <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="relative h-[600px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover" data-alt="A majestic and respectful panoramic view of a modern hospital building under a clear blue sky, illuminated by soft morning sunlight. The architecture blends clinical precision with prestigious royal elements, featuring clean lines and a serene landscape. The overall mood is dignified and professional, reflecting the clinical blue and gold brand colors of a top-tier healthcare institution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrNDotRnsHXBGQBaFxKCxi92z6_FvkysuEp726QcYOAR8DuVeewRNgk9HVMEco0eCJsIelltIokJhPdGWeKLVEQdQ0NrckpM_qtrCo3bhNCn1Ly6sHfffyZBgm3HBzTBK35LOXNx8fJn0k1xtRJ3pzbz4fgVg2JBortaXmZ0PshzOTYtr4BIjw2f8CIv0PIfWSYOTzvLCrC3-fCE2iZlX9aCO4HQ4tADQdhqnAOA5ZY47IsC0pi4XsORMaQm3Bu3egFN6pdFH2ZGQ">
+                <div class="absolute inset-0 bg-gradient-to-r from-clinical-blue-dark/90 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+                <div class="max-w-2xl text-white">
+                    <span class="inline-block py-1 px-4 bg-royal-gold-light text-on-secondary-fixed font-label-bold text-label-bold rounded-full mb-6">
+                        ความเป็นมาอันทรงเกียรติ
+                    </span>
+                    <h1 class="font-headline-xl text-headline-xl mb-6">ประวัติความเป็นมาและการพัฒนาอย่างต่อเนื่อง</h1>
+                    <p class="font-body-lg text-body-lg text-on-primary-container/90 mb-8">
+                        โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า มุ่งมั่นดูแลสุขภาพของประชาชนด้วยมาตรฐานสากล ภายใต้ร่มพระบารมีเพื่อคุณภาพชีวิตที่ดีขึ้นของชาวเพชรบูรณ์และพื้นที่ใกล้เคียง
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Royal Patronage Section -->
+        <section class="py-24 bg-surface-container-lowest">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-4 border-royal-gold-light/20">
+                            <img class="w-full h-full object-cover" data-alt="A dignified and high-quality artistic photography of a royal emblem or ceremonial document related to Thai royalty, set in a professional healthcare environment. The lighting is soft and golden, highlighting intricate details and textures. The background shows a hint of a clean, clinical interior, maintaining a balance between royal heritage and modern medical excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmEYdp7hO3T7nuL5CsiTLl724FP8fto6T_ars18-VzzUFLj8fZk4O3pnrfmZ3u-l8TVwPcxoJCMXHitS0DwHAbCOMpQ_BVz7XZ-Wvcl4FzbyARmkicK10rbOUcW0BwolyLNAogsxdoeq6dGsBelOUHvbQ_GqzvFiq1d-NvC8-soU1AmK5enVlnBXNMglCQMSCdl09oiAUckpMlGfcnflEzJp1pLSFatDAmMMAMY5onJA6lMfph6wsthSmKCUtVsNY30pFZYv3Tr5I">
+                        </div>
+                        <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-royal-gold-light/10 rounded-full blur-3xl -z-10"></div>
+                    </div>
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg text-clinical-blue-dark mb-8">ความหมายของ "โรงพยาบาลสมเด็จพระยุพราช"</h2>
+                        <div class="space-y-6">
+                            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                โรงพยาบาลสมเด็จพระยุพราช (Crown Prince Hospital) เป็นชื่อพระราชทานจากพระบาทสมเด็จพระวชิรเกล้าเจ้าอยู่หัว เมื่อครั้งทรงดำรงพระอิสริยยศสมเด็จพระบรมโอรสาธิราชฯ สยามมกุฎราชกุมาร เพื่อให้เป็นโรงพยาบาลที่อำนวยประโยชน์แก่ประชาชนในถิ่นทุรกันดาร
+                            </p>
+                            <div class="p-6 bg-surface-container rounded-xl border-l-4 border-royal-gold-light">
+                                <p class="font-label-bold text-label-bold text-secondary italic">"ความหมายของ 'โรงพยาบาลสมเด็จพระยุพราช' คือการสร้างโรงพยาบาลที่สะอาด สวยงาม และได้มาตรฐาน ให้ชาวบ้านในชนบทได้รับการดูแลรักษาพยาบาลด้วยหัวใจ"</p>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                จิตวิญญาณของเราคือการทำงานเพื่อสังคม และการพัฒนาที่ไม่หยุดยั้งเพื่อรักษาไว้ซึ่งเกียรติประวัติแห่งการเป็นโรงพยาบาลในพระอุปถัมภ์
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="py-24 bg-surface relative overflow-hidden">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative">
+                <div class="text-center mb-20">
+                    <h2 class="font-headline-lg text-headline-lg text-clinical-blue-dark mb-4">เส้นทางแห่งการเติบโตและการพัฒนา</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+                        จากสถานีอนามัยเล็กๆ สู่โรงพยาบาลมาตรฐานสากลที่พร้อมดูแลสุขภาพของทุกคน
+                    </p>
+                </div>
+                <div class="relative timeline-line">
+                    <!-- 2520 -->
+                    <div class="mb-24 flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="w-full md:w-5/12 order-2 md:order-1">
+                            <div class="p-8 glass-card rounded-xl shadow-sm hover:shadow-md transition-shadow transition-all duration-700 opacity-100 translate-y-0">
+                                <span class="font-headline-md text-headline-md text-royal-gold-light block mb-2">พ.ศ. 2520</span>
+                                <h3 class="font-headline-md text-headline-md text-clinical-blue-dark mb-4">พระมหากรุณาธิคุณและการวางศิลาฤกษ์</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">พระบาทสมเด็จพระเจ้าอยู่หัว (รัชกาลที่ 10) ทรงพระกรุณาโปรดเกล้าฯ ให้ก่อสร้างโรงพยาบาลสมเด็จพระยุพราช เพื่อดูแลพสกนิกรในถิ่นทุรกันดาร และทรงเสด็จพระราชดำเนินวางศิลาฤกษ์ เมื่อวันที่ 14 สิงหาคม 2520</p>
+                            </div>
+                        </div>
+                        <div class="z-20 flex items-center order-1 md:order-2 bg-clinical-blue-dark shadow-xl w-12 h-12 rounded-full mb-8 md:mb-0">
+                            <span class="material-symbols-outlined text-white mx-auto">foundation</span>
+                        </div>
+                        <div class="w-full md:w-5/12 order-3">
+                            <img class="rounded-xl shadow-lg" data-alt="A vintage-style black and white photography capturing the groundbreaking ceremony of a medical facility in a rural landscape. The image reflects historical significance, with community members and officials gathered around a construction site. The lighting is bright and nostalgic, emphasizing the beginning of a prestigious healthcare journey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvzYBKwzt5vpO30pPPQAg_WQXFPwXAE-qfpv_Flm5O7UTzpCP8efqwd3e-P_Y1LK92zUB5z1T8DBQpe4M2lFelDMk1YmRdkPbmXI3tnkFdUXzP18ZBQmxuj0sUAuFJuFbo02xofQEBcmBLBDfIqhSmLcj7u3Jk6-Canrgf7ioTON-gxJeZyVfHru9vUXlhzCt-MoEpbpShOFxIf4J7AMlwAHrnivPR2rCkannHQsENCIkl7tIsNgDyefWfDPwucVATe48-uStGwn8">
+                        </div>
+                    </div>
+                    <!-- 2540 -->
+                    <div class="mb-24 flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="w-full md:w-5/12 order-3 md:order-3">
+                            <div class="p-8 glass-card rounded-xl shadow-sm hover:shadow-md transition-shadow transition-all duration-700 opacity-100 translate-y-0">
+                                <span class="font-headline-md text-headline-md text-royal-gold-light block mb-2">พ.ศ. 2522</span>
+                                <h3 class="font-headline-md text-headline-md text-clinical-blue-dark mb-4">พิธีเปิดอย่างเป็นทางการ</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">ทรงเสด็จพระราชดำเนินทรงเปิดโรงพยาบาลสมเด็จพระยุพราชหล่มเก่า อย่างเป็นทางการ เมื่อวันที่ 24 ตุลาคม 2522 เพื่อเป็นที่พึ่งด้านสุขภาพให้แก่ประชาชน</p>
+                            </div>
+                        </div>
+                        <div class="z-20 flex items-center order-1 md:order-2 bg-royal-gold-light shadow-xl w-12 h-12 rounded-full mb-8 md:mb-0">
+                            <span class="material-symbols-outlined text-white mx-auto">add_business</span>
+                        </div>
+                        <div class="w-full md:w-5/12 order-2 md:order-1">
+                            <img class="rounded-xl shadow-lg" data-alt="A bright, high-key interior photograph of a modern hospital ward from the late 90s, showcasing clean medical equipment, organized patient beds, and a professional clinical atmosphere. The lighting is crisp and efficient, with a palette of soft blues and whites that evoke a sense of order, progress, and care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA51TPG77kh3atSG1Xb1i5uqsz6jVU4ff2KNOOWiibZ2yZO0SM82VwqKx_OpoJ1WEyW2u0QwJu6Z2JKlyTZOzI9MzuW4gWM5mWBNeFNbqf8FKymOnQoewEHJLCAVQCWXQsgY0seJGzOoRqolc8BoxHr336YWAkOyE5o_osn_b0B99Oq6Sli_AnxHP7hg-Zu79geRzekQgn5vS39xo2HWxd-5TlTYvzgftDUGIFiXPqltDy9MJn10hHQZaPbEg40qXoBT4OTdnjGNFU">
+                        </div>
+                    </div>
+                    <!-- 2565 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                        <div class="w-full md:w-5/12 order-2 md:order-1">
+                            <div class="p-8 glass-card rounded-xl shadow-sm hover:shadow-md transition-shadow border-2 border-primary/20 transition-all duration-700 opacity-100 translate-y-0">
+                                <span class="font-headline-md text-headline-md text-royal-gold-light block mb-2">ปัจจุบัน</span>
+                                <h3 class="font-headline-md text-headline-md text-clinical-blue-dark mb-4">การพัฒนาสู่ศูนย์กลางการแพทย์ดิจิทัล</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">มุ่งเน้นการพัฒนาอย่างต่อเนื่อง นำเทคโนโลยี Smart Hospital และเครื่องมือทางการแพทย์ที่ทันสมัยมาใช้ เพื่อคุณภาพชีวิตที่ดีขึ้นของประชาชนภายใต้มาตรฐานสากล</p>
+                            </div>
+                        </div>
+                        <div class="z-20 flex items-center order-1 md:order-2 bg-status-success shadow-xl w-12 h-12 rounded-full mb-8 md:mb-0">
+                            <span class="material-symbols-outlined text-white mx-auto">verified</span>
+                        </div>
+                        <div class="w-full md:w-5/12 order-3">
+                            <img class="rounded-xl shadow-lg" data-alt="A futuristic medical technology setting featuring high-resolution digital screens displaying health data and diagnostic imaging. The lighting is cool-toned, clinical blue, and bright white, representing a state-of-the-art Smart Hospital. The composition is clean and minimalist, conveying precision, innovation, and trust in modern healthcare." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-HmsQFnbHXlmSbgvK9FFaU2uZBQwooT2jbihWQ6IvAKkYWrL2N1ZqaS5u2zLsJ8yEG532qZ8EcvH-bLpwfMH56Eur_nH5xPNJuAVp6uJumCi5XTcYYcZShR6Nz9dmHIoRjV7fvCL-XGKwkebBP21eWpR9IYis6dakvOrIfMPpg1RHVjpAU3o3pCkCKUz46NLVX8BPwL2yi4yLpsruxQfmGePZ3XG2xz1cGCUg8yG00VXqzSGKXo6UpncjDpE-3eeZRypStZHj9yo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20 bg-clinical-blue-dark text-white">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-headline-xl font-headline-xl text-royal-gold-light mb-2">45+</div>
+                        <div class="text-label-bold font-label-bold uppercase tracking-wider">ปีแห่งการบริการ</div>
+                    </div>
+                    <div>
+                        <div class="text-headline-xl font-headline-xl text-royal-gold-light mb-2">500+</div>
+                        <div class="text-label-bold font-label-bold uppercase tracking-wider">บุคลากรผู้เชี่ยวชาญ</div>
+                    </div>
+                    <div>
+                        <div class="text-headline-xl font-headline-xl text-royal-gold-light mb-2">150,000+</div>
+                        <div class="text-label-bold font-label-bold uppercase tracking-wider">ผู้รับบริการต่อปี</div>
+                    </div>
+                    <div>
+                        <div class="text-headline-xl font-headline-xl text-royal-gold-light mb-2">10+</div>
+                        <div class="text-label-bold font-label-bold uppercase tracking-wider">ศูนย์ความเป็นเลิศ</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-highest border-t border-royal-gold-light">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <div class="max-w-sm">
+                    <span class="font-headline-md text-headline-md font-bold text-primary mb-6 block">โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า</span>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        มุ่งมั่นเป็นเลิศในการบริการทางการแพทย์และการดูแลรักษาพยาบาล ด้วยมาตรฐานระดับสากล ภายใต้ร่มพระบารมี
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+                            <span class="material-symbols-outlined">social_leaderboard</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+                            <span class="material-symbols-outlined">call</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="font-label-bold text-label-bold text-on-surface mb-6">ข้อมูลบริการ</h4>
+                        <ul class="space-y-4">
+                            <li class=""><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">นัดหมายแพทย์</a></li>
+                            <li class=""><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">ศูนย์บริการ</a></li>
+                            <li class=""><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">แผนที่โรงพยาบาล</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-label-bold text-label-bold text-on-surface mb-6">เกี่ยวกับเรา</h4>
+                        <ul class="space-y-4">
+                            <li class=""><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">ประวัติโรงพยาบาล</a></li>
+                            <li class=""><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">นโยบายความเป็นส่วนตัว</a></li>
+                            <li class=""><a class="text-body-md font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">ร่วมงานกับเรา</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-body-md text-body-md text-on-surface-variant">© 2024 โรงพยาบาลสมเด็จพระยุพราชหล่มเก่า. สงวนลิขสิทธิ์.</p>
+                <div class="flex gap-6">
+                    <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary" href="#">เงื่อนไขการใช้งาน</a>
+                    <a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary" href="#">ติดต่อเรา</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login FAB -->
+    <div class="fixed bottom-8 right-8 z-[60]">
+        <button class="flex items-center gap-2 px-4 py-3 bg-white border border-outline-variant shadow-lg rounded-full text-on-surface-variant hover:text-primary hover:border-primary transition-all active:scale-95 group">
+            <span class="material-symbols-outlined">admin_panel_settings</span>
+            <span class="font-label-bold text-label-bold pr-2">เจ้าหน้าที่ (Login)</span>
+        </button>
+    </div>
+
+    <script>
+        // Micro-interaction for timeline cards on scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
