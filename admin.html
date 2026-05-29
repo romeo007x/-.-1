@@ -30,7 +30,18 @@ body{
 
 </head>
 
+
 <body class="bg-slate-100">
+
+<script>
+
+if (!localStorage.getItem("isLogin")) {
+
+    document.getElementById("dashboard")?.remove();
+
+}
+
+</script>
 
 <!-- =========================
      DASHBOARD
@@ -106,68 +117,99 @@ body{
                     MENU
                 </p>
 
-                <nav class="space-y-2">
+               
+<nav class="space-y-2">
 
-                    <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-700 text-white font-semibold">
+    <!-- DASHBOARD -->
+    <a href="admin.html"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-700 text-white font-semibold">
 
-                        <span class="material-symbols-outlined">
-                            dashboard
-                        </span>
+        <span class="material-symbols-outlined">
+            dashboard
+        </span>
 
-                        Dashboard
+        Dashboard
 
-                    </a>
+    </a>
 
-                    <!-- NEWS PAGE -->
-                    <a href="news.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+    <!-- HOME PAGE -->
+    <a href="index.html"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
 
-                        <span class="material-symbols-outlined">
-                            newspaper
-                        </span>
+        <span class="material-symbols-outlined">
+            home
+        </span>
 
-                        ข่าวประชาสัมพันธ์
+        หน้าแรกเว็บไซต์
 
-                    </a>
+    </a>
 
-                    <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+    <!-- OPEN WEBSITE -->
+    <a href="index.html"
+    target="_blank"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
 
-                        <span class="material-symbols-outlined">
-                            group
-                        </span>
+        <span class="material-symbols-outlined">
+            open_in_new
+        </span>
 
-                        จัดการแพทย์
+        เปิดเว็บไซต์
 
-                    </a>
+    </a>
 
-                    <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+    <!-- NEWS -->
+    <a href="news.html"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
 
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
+        <span class="material-symbols-outlined">
+            newspaper
+        </span>
 
-                        ตั้งค่า
+        ข่าวประชาสัมพันธ์
 
-                    </a>
+    </a>
 
-                    <!-- LOGOUT -->
-                    <button
-                        onclick="logout()"
-                        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition mt-10"
-                    >
+    <!-- DOCTOR -->
+    <a href="#"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
 
-                        <span class="material-symbols-outlined">
-                            logout
-                        </span>
+        <span class="material-symbols-outlined">
+            group
+        </span>
 
-                        ออกจากระบบ
+        จัดการแพทย์
 
-                    </button>
+    </a>
 
-                </nav>
+    <!-- SETTINGS -->
+    <a href="#"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+
+        <span class="material-symbols-outlined">
+            settings
+        </span>
+
+        ตั้งค่า
+
+    </a>
+
+    <!-- LOGOUT -->
+    <button
+        onclick="logout()"
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition mt-10"
+    >
+
+        <span class="material-symbols-outlined">
+            logout
+        </span>
+
+        ออกจากระบบ
+
+    </button>
+
+</nav>
+```
+
 
             </div>
 
@@ -250,6 +292,7 @@ body{
      SCRIPT
 ========================= -->
 
+
 <script>
 
 /* =========================
@@ -259,7 +302,10 @@ body{
 const USERNAME = "admin";
 const PASSWORD = "1234";
 
-// เช็ค login
+/* =========================
+   CHECK LOGIN
+========================= */
+
 if (!localStorage.getItem("isLogin")) {
 
     document.body.innerHTML = `
@@ -329,6 +375,11 @@ if (!localStorage.getItem("isLogin")) {
    LOGIN
 ========================= */
 
+
+/* =========================
+   LOGIN
+========================= */
+
 function login() {
 
     const user = document.getElementById("username").value;
@@ -336,9 +387,19 @@ function login() {
 
     if (user === USERNAME && pass === PASSWORD) {
 
+        /* LOGIN */
+
         localStorage.setItem("isLogin", "true");
 
-        location.reload();
+        /* สิทธิ์ ADMIN */
+
+        localStorage.setItem("isAdmin", "true");
+
+        alert("เข้าสู่ระบบสำเร็จ");
+
+        /* ไปหน้าแรก */
+
+        window.location.href = "index.html";
 
     } else {
 
@@ -354,12 +415,18 @@ function login() {
 
 function logout() {
 
-    localStorage.removeItem("isLogin");
+    /* ลบข้อมูล */
 
-    location.reload();
+    localStorage.removeItem("isLogin");
+    localStorage.removeItem("isAdmin");
+
+    alert("ออกจากระบบแล้ว");
+
+    /* กลับหน้า login */
+
+    window.location.href = "admin.html";
 
 }
-
 /* =========================
    NEWS SYSTEM
 ========================= */

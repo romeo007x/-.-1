@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>EDIT HOME</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Be Vietnam Pro',sans-serif;
+    background:#f5f8fa;
+}
+
+</style>
+
+</head>
+
+<body class="min-h-screen p-6">
+
+<script>
+
+/* =========================
+   ADMIN CHECK
+========================= */
+
+const isAdmin =
+localStorage.getItem("isAdmin");
+
+if(isAdmin !== "true"){
+
+    alert("เฉพาะแอดมินเท่านั้น");
+
+    window.location.href =
+    "index.html";
+
+}
+
+</script>
+
+<!-- TOP -->
+
+<div class="max-w-5xl mx-auto">
+
+<div class="bg-white rounded-3xl shadow-xl p-8">
+
+<h1 class="text-4xl font-extrabold text-slate-800 mb-2">
+แก้ไขหน้าแรกเว็บไซต์
+</h1>
+
+<p class="text-slate-500 mb-8">
+สามารถแก้ข้อความหน้าแรกได้
+</p>
+
+<!-- HERO TITLE -->
+
+<div class="mb-6">
+
+<label class="block font-bold mb-3">
+หัวข้อหลัก
+</label>
+
+<input
+id="heroTitle"
+type="text"
+class="w-full border rounded-2xl px-5 py-4"
+placeholder="หัวข้อใหญ่">
+
+</div>
+
+<!-- HERO DESC -->
+
+<div class="mb-6">
+
+<label class="block font-bold mb-3">
+รายละเอียด
+</label>
+
+<textarea
+id="heroDesc"
+class="w-full border rounded-2xl px-5 py-4 h-40"
+placeholder="รายละเอียดหน้าเว็บ"></textarea>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="flex flex-wrap gap-4">
+
+<button
+onclick="saveData()"
+class="bg-primary text-white px-6 py-4 rounded-2xl font-bold shadow-lg"
+style="background:#005570;">
+
+บันทึกข้อมูล
+
+</button>
+
+<button
+onclick="logoutAdmin()"
+class="bg-red-600 text-white px-6 py-4 rounded-2xl font-bold shadow-lg">
+
+ออกจากระบบ
+
+</button>
+
+<a href="index.html"
+class="bg-slate-200 px-6 py-4 rounded-2xl font-bold">
+
+กลับหน้าแรก
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* =========================
+   LOAD DATA
+========================= */
+
+window.onload = function(){
+
+    document.getElementById(
+    "heroTitle"
+    ).value =
+    localStorage.getItem(
+    "heroTitle"
+    ) || "";
+
+    document.getElementById(
+    "heroDesc"
+    ).value =
+    localStorage.getItem(
+    "heroDesc"
+    ) || "";
+
+};
+
+/* =========================
+   SAVE
+========================= */
+
+function saveData(){
+
+    const title =
+    document.getElementById(
+    "heroTitle"
+    ).value;
+
+    const desc =
+    document.getElementById(
+    "heroDesc"
+    ).value;
+
+    localStorage.setItem(
+    "heroTitle",
+    title
+    );
+
+    localStorage.setItem(
+    "heroDesc",
+    desc
+    );
+
+    alert("บันทึกสำเร็จ");
+
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logoutAdmin(){
+
+    localStorage.removeItem(
+    "isAdmin"
+    );
+
+    localStorage.removeItem(
+    "isLogin"
+    );
+
+    alert("ออกจากระบบแล้ว");
+
+    window.location.href =
+    "login.html";
+
+}
+
+</script>
+
+</body>
+</html>
